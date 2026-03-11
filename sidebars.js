@@ -15,6 +15,17 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Agents',
+      collapsed: false,
+      items: [
+        'agents/overview',
+        'agents/authentication',
+        'agents/playground-integration',
+        'agents/agent-chat',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Launch',
       items: [
         'launch/launch',

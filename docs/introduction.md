@@ -32,6 +32,7 @@ Playroom → Playzone → Playspec → Playground
 - **Share live previews** — Every service gets a unique HTTPS subdomain
 - **Mix Dev and Production modes** — Mount source code for some services, use built images for others
 - **Automate with the API** — Full REST API with scoped API keys for CI/CD integration
+- **Use AI coding agents** — Store your personal Gemini, Claude, or OpenAI credentials and spin up AI chat sessions on your infrastructure
 - **Publish reusable templates** — Share environment blueprints via Stargate or your own fleet
 
 ## Quick Links
@@ -43,4 +44,5 @@ Playroom → Playzone → Playspec → Playground
 | Understand core concepts | [Core Concepts](/core-concepts/playroom) |
 | Configure services | [Services](/services/overview) |
 | Use the REST API | [API Reference](/api/overview) |
+| Use AI agents with my own credentials | [Agents](/agents/overview) |
 | Create a reusable template | [Templates](/launch/templates) |
