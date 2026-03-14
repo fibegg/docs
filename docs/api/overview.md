@@ -76,7 +76,9 @@ Each API key has one or more scopes that control which resources and actions it 
 | `import_templates:read` | List and view import templates |
 | `import_templates:write` | Create and update import templates |
 | `launch:write` | Use the Launch endpoint |
+| `repos:write` | Create GitHub repositories and push files via the Repositories API |
 | `keys:manage` | Create and delete API keys |
+| `mcp:access` | Connect to the [MCP server](/mcp/overview) |
 
 ### Key Expiration
 

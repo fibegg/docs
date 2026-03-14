@@ -11,6 +11,7 @@ const sidebars = {
         'core-concepts/playzone',
         'core-concepts/playspec',
         'core-concepts/playground',
+        'core-concepts/audit-logs',
       ],
     },
     {
@@ -22,6 +23,13 @@ const sidebars = {
         'agents/authentication',
         'agents/playground-integration',
         'agents/agent-chat',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'MCP Server',
+      items: [
+        'mcp/overview',
       ],
     },
     {
@@ -53,6 +61,7 @@ const sidebars = {
         'api/playzones',
         'api/playspecs',
         'api/playgrounds',
+        'api/repositories',
         'api/launch',
         'api/templates',
       ],

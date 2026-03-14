@@ -13,8 +13,7 @@ Agent Chat lets you spin up a **general-purpose AI coding assistant** powered by
 1. Go to the agent detail page
 2. Click **Start Chat**
 3. In the modal, select an active **Playroom** (non-tutorial Playrooms only)
-4. Optionally check **Never expire** to disable the time-to-live
-5. Click **Launch Chat**
+4. Click **Launch Chat**
 
 :::caution One active chat per agent
 Only **1 active chat** is allowed per agent at a time. You must stop the current chat before starting a new one.
@@ -47,13 +46,9 @@ chat-ac-{random}-{agent-slug}.{playroom-root-domain}
 
 The chat is protected with auto-generated HTTP Basic Auth credentials.
 
-## Expiration & Extension
+## Extension
 
-| Setting | Behavior |
-|---|---|
-| **Default TTL** | 2 hours from chat start |
-| **Extend +2h** | Adds 2 hours from the current expiration (or from now, whichever is later) |
-| **∞ Never expire** | Removes the TTL entirely — chat runs indefinitely (requires confirmation) |
+Agent chats run indefinitely until manually stopped. You can start and stop them at any time from the agent detail page.
 
 ## Stopping a Chat
 

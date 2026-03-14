@@ -46,8 +46,7 @@ Each account can store up to **10 agents** — for example, separate agents for 
 | Status | Meaning |
 |---|---|
 | **Pending** | Created but not yet authenticated |
-| **Authenticated** | Credentials stored and usable |
-| **Expired** | Credentials have expired |
+| **Authenticated** | Credentials stored and ready to use |
 | **Revoked** | Credentials manually revoked |
 
-An agent is **usable** when its status is `authenticated` and its optional expiration has not passed.
+An agent is **usable** when its status is `authenticated`.
