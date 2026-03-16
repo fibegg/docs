@@ -22,7 +22,7 @@ const sidebars = {
         'agents/overview',
         'agents/authentication',
         'agents/playground-integration',
-        'agents/agent-chat',
+        'agents/artefacts-and-activity',
       ],
     },
     {

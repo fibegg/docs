@@ -31,7 +31,8 @@ POST /api/launch
   "playroom_id": 1,
   "create_playground": true,
   "persist_volumes": false,
-  "agent": "gemini"
+  "persist_volumes": false,
+  "agent": "custom-assistant"
 }
 ```
 
@@ -44,7 +45,7 @@ POST /api/launch
 | `playroom_id` | integer | No | Playroom to deploy on (required if `create_playground` is true) |
 | `create_playground` | boolean | No | Whether to immediately create and start a Playground (default: false) |
 | `persist_volumes` | boolean | No | Enable persistent volumes on the Playspec (default: false) |
-| `agent` | string | No | AI agent provider to attach (e.g., `gemini`, `claude-code`) |
+| `agent` | string | No | AI agent provider to attach (e.g., `custom-assistant`) |
 
 **Response (201 Created):**
 

@@ -10,7 +10,7 @@ When creating or editing a [Playground](/core-concepts/playground), you can atta
 
 ## How to Attach
 
-1. In the Playground form, select an **Agent Provider** (Gemini, Claude Code, or OpenAI Codex)
+1. In the Playground form, select an **Agent Provider**
 2. A **Stored Agent** dropdown appears, listing your authenticated agents for that provider
 3. Select the agent — its credentials are automatically injected into the sidecar at deploy time
 
@@ -29,7 +29,11 @@ The agent sidecar runs alongside your other services and is accessible at its ow
 When a Playground with an attached Stored Agent is deployed:
 
 1. The platform reads the encrypted credentials from the agent record
-2. Credentials are injected as files into the provider-specific path inside the sidecar container
-3. The agent sidecar starts with your credentials pre-configured — no manual setup needed
+2. Credentials and configuration items (System Prompt, Custom MCP, Avatar) are injected into the agent sidecar container
+3. The agent sidecar starts with your configuration pre-loaded — no manual setup needed
 
 Because these are **your personal subscription credentials**, all AI usage runs against **your own provider quota** — not any platform-provided tokens.
+
+### Next Steps
+
+To see what your attached agent is doing during a deployment, check out [Agent Artefacts and Activity](/agents/artefacts-and-activity).

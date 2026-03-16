@@ -170,11 +170,13 @@ Logs are available in the web UI and via the [API](/api/playgrounds#get-service-
 
 The Debug page provides a comprehensive view of a Playground's internal state — useful for troubleshooting issues with containers, networking, or configuration.
 
+## Web SSH Terminal
+
+Playgrounds include a fully-featured **Web SSH Terminal** directly in the browser. You can securely connect to your Playroom hosts and manage your containers without needing local SSH keys or terminal applications.
+
 ## Playground Agent
 
-Playgrounds can optionally include an **AI coding agent** sidecar. When enabled, the agent is deployed alongside your services and is accessible at its own subdomain (`agent-{project}.{domain}`).
-
-Supported agent providers: Gemini, OpenAI Codex, Claude Code, OpenCodex.
+Playgrounds can optionally include an **AI coding agent** sidecar. When enabled, the agent is deployed alongside your services and is accessible at its own subdomain (`agent-{project}.{domain}`). Agents can be configured via the built-in wizard to use various LLM providers and Custom MCPs.
 
 ## Playguard
 

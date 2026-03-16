@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 title: Advanced Configuration
-description: Production mode, IDE, build overrides, Dockerfile paths, branch creation, and base images.
+description: Production mode, build overrides, Dockerfile paths, branch creation, and base images.
 ---
 
 # Advanced Configuration
@@ -15,10 +15,7 @@ Dynamic services can be toggled between **Dev mode** (default) and **Production 
 | Aspect | Dev Mode | Production Mode |
 |--------|----------|-----------------|
 | **Source code** | Mounted from Git clone | Not mounted — runs from a built image |
-| **IDE** | code-server sidecar attached | No IDE |
 | **Auto-sync** | git pull on clean branches | No sync — manual re-creation required |
-| **Image** | Base image from Dockerfile | Fully built image from BuildRecord |
-| **Live reload** | Supported (framework-dependent) | Not applicable |
 
 ### When to Use Production Mode
 
@@ -39,35 +36,6 @@ The build process at creation time:
 2. Builds the Docker image using the service's Dockerfile
 3. Stores a `BuildRecord` with the resulting image reference
 4. Uses that image for all containers in the Playground
-
-## Browser IDE (code-server)
-
-Every dynamic service in Dev mode gets a browser-based IDE powered by [code-server](https://github.com/coder/code-server) (VS Code in the browser).
-
-### IDE Access
-
-| Field | Value |
-|-------|-------|
-| **URL** | `https://ide-{service_subdomain}.{root_domain}` |
-| **Password** | Unique per service, auto-generated (visible in the Playground detail view) |
-
-### IDE Capabilities
-
-From the browser IDE, you can:
-
-- Edit source code with full VS Code features (syntax highlighting, IntelliSense, extensions)
-- **Commit** changes to the Git repository
-- **Push** to remote
-- **Pull** from remote
-- Use the integrated terminal
-- Install VS Code extensions
-
-### IDE Availability
-
-The IDE is available only when:
-- The service type is **dynamic**
-- The service is running in **Dev mode** (not Production mode)
-- IDE is explicitly enabled for the service
 
 ## Start Command
 

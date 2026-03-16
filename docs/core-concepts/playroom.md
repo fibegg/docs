@@ -83,6 +83,7 @@ Before creating a Playroom, your remote server must meet these requirements:
 | **SSH access** | The platform must be able to reach the host over SSH |
 | **Docker** | Docker Engine must be installed and accessible to the configured user |
 | **User permissions** | The user must have permission to run `docker` commands (or `sudo` must be enabled) |
+| **Docker group** | The user should be a member of the `docker` group for agent container Docker socket access |
 | **Directory access** | The user must have read/write access to `/opt/phoenix` |
 | **Inbound ports** | Ports `80` and `443` must be open for HTTP/HTTPS traffic |
 | **DNS** | Your domain(s) must have A/CNAME records pointing to the server's IP address |

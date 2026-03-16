@@ -12,12 +12,11 @@ Every [Playspec](/core-concepts/playspec) defines one or more **services** — t
 
 ### Static Services
 
-A **static service** runs a pre-built Docker image without any source code mounting or IDE integration.
+A **static service** runs a pre-built Docker image without any source code mounting.
 
 | Feature | Static Service |
 |---------|---------------|
 | Source code mounting | ❌ No |
-| Browser IDE | ❌ No |
 | Auto-sync (git pull) | ❌ No |
 | Production mode toggle | ❌ No |
 | Requires a Playzone | ❌ No |
@@ -35,16 +34,14 @@ A **dynamic service** is backed by source code from a [Playzone](/core-concepts/
 | Feature | Dev Mode |
 |---------|----------|
 | Source code mounting | ✅ Yes — code is mounted into the container at the configured working directory |
-| Browser IDE | ✅ Yes — a [code-server](https://github.com/coder/code-server) sidecar is attached |
 | Auto-sync (git pull) | ✅ Yes — Playguard pulls new commits when the working tree is clean |
-| Git operations | ✅ Yes — commit, push, pull directly from the browser IDE |
+| Git operations | ✅ Yes — commit, push, pull directly from the container terminal |
 
 #### Production Mode
 
 | Feature | Production Mode |
 |---------|----------------|
 | Source code mounting | ❌ No — the service runs from a built Docker image |
-| Browser IDE | ❌ No |
 | Auto-sync (git pull) | ❌ No |
 | Automatic rebuild | ❌ No — manual re-creation required when new commits land |
 

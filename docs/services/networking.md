@@ -48,7 +48,6 @@ Each exposed service has a visibility setting that controls access:
 | Visibility | Access Control | Use For |
 |------------|---------------|---------|
 | **External** | Publicly accessible — no authentication required | User-facing apps, APIs, static sites |
-| **Internal** | Protected by HTTP Basic Auth | IDEs, admin panels, databases, internal tools |
 
 ### HTTP Basic Auth (Internal Services)
 
@@ -99,12 +98,3 @@ The platform configures Traefik to forward HTTPS (443) traffic to the specified 
 
 For services that need to expose non-HTTP ports (e.g., WebSocket servers on a different port), you can define port mappings in the Docker Compose YAML. These ports are managed through standard Docker Compose port publishing.
 
-## IDE Subdomains
-
-Dynamic services in [Dev mode](/services/overview#dev-mode-default) automatically get a browser-based IDE (code-server) at:
-
-```
-https://ide-{service_subdomain}.{root_domain}
-```
-
-For example, if the `web` service has subdomain `web` on `dev.example.com`, the IDE is at `https://ide-web.dev.example.com`. IDE subdomains are always **internal** (protected by a per-service IDE password).

@@ -31,7 +31,8 @@ POST /api/launch
   "playroom_id": 1,
   "create_playground": true,
   "persist_volumes": false,
-  "agent": "gemini"
+  "persist_volumes": false,
+  "agent": "custom-assistant"
 }
 ```
 
@@ -44,7 +45,7 @@ POST /api/launch
 | `playroom_id` | integer | Ні | Playroom для розгортання (обовʼязковий, якщо `create_playground` true) |
 | `create_playground` | boolean | Ні | Чи створити та запустити Playground одразу (за замовчуванням: false) |
 | `persist_volumes` | boolean | Ні | Увімкнути збереження томів на Playspec (за замовчуванням: false) |
-| `agent` | string | Ні | Провайдер AI-агента (напр., `gemini`, `claude-code`) |
+| `agent` | string | Ні | Провайдер AI-агента (напр., `custom-assistant`) |
 
 **Відповідь (201 Created):**
 

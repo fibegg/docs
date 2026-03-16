@@ -29,12 +29,16 @@ Playroom → Playzone → Playspec → Playground
 
 - **Launch environments instantly** — Spin up complete stacks from a Docker Compose file or a template
 - **Edit code in the browser** — Every dynamic service gets a browser-based VS Code IDE
+- **Web SSH Terminal** — Access your environments directly via a fully-featured browser terminal
 - **Share live previews** — Every service gets a unique HTTPS subdomain
 - **Mix Dev and Production modes** — Mount source code for some services, use built images for others
 - **Automate with the API** — Full REST API with scoped API keys for CI/CD integration
-- **Connect AI agents via MCP** — Use the built-in MCP server with Claude Desktop, Cursor, VS Code Copilot, and more
-- **Use AI coding agents** — Store your personal Gemini, Claude, or OpenAI credentials and spin up AI chat sessions on your infrastructure
+- **Connect AI agents via MCP** — Use the built-in MCP server to allow any MCP-compatible AI agent to manage your environments
+- **Integrate Custom Agents** — Store generic provider credentials and deploy AI agents alongside your services with Custom MCP support
+- **Agent Features** — Leverage Agent Artefacts (file uploads) and real-time Agent Activity tracking
 - **Manage GitHub repos** — Create repositories and push files via the Repositories API
+- **Track everything** — Audit Logs record every Playground lifecycle event for debugging and accountability
+- **Publish reusable templates** — Share environment blueprints via Stargate or your own fleet
 - **Track everything** — Audit Logs record every Playground lifecycle event for debugging and accountability
 - **Publish reusable templates** — Share environment blueprints via Stargate or your own fleet
 

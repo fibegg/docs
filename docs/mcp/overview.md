@@ -6,7 +6,7 @@ description: Connect AI agents like Claude, Cursor, and VS Code Copilot to manag
 
 # MCP Server
 
-Playgrounds.dev includes a built-in [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server. AI agents like **Claude Desktop**, **Cursor**, **VS Code Copilot**, and others can connect to the MCP server and manage the entire platform using natural language.
+Playgrounds.dev includes a built-in [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server. Any MCP-compatible AI agent or client can connect to the MCP server and manage the entire platform using natural language.
 
 ## Quick Start
 
@@ -29,7 +29,7 @@ POST /api/keys
       "playzones:read", "playzones:write",
       "repos:write",
       "launch:write",
-      "import_templates:read"
+      "import_templates:read", "import_templates:write"
     ]
   }
 }
@@ -137,9 +137,19 @@ All standard [API authentication](/api/overview) rules apply. An API key without
 
 | Tool | Required Scope | Description |
 |------|-------|-------------|
-| `list_templates` | `import_templates:read` | List available templates |
-| `get_template` | `import_templates:read` | Get template details |
-| `search_templates` | `import_templates:read` | Search the template catalog |
+| `list_templates` | `import_templates:read` | List your templates |
+| `get_template` | `import_templates:read` | Get template details and versions |
+| `search_templates` | `import_templates:read` | Search templates by name, category, and filters |
+| `list_template_categories` | `import_templates:read` | List available template categories |
+| `create_template` | `import_templates:write` | Create a new template with an initial version |
+| `update_template` | `import_templates:write` | Update template metadata (name, description, category) |
+| `delete_template` ⚠️ | `import_templates:write` | Delete a template and all its versions |
+| `list_template_versions` | `import_templates:read` | List versions of a template |
+| `create_template_version` | `import_templates:write` | Add a new version to a template |
+| `toggle_template_version_public` | `import_templates:write` | Toggle a version's public/private visibility |
+| `delete_template_version` ⚠️ | `import_templates:write` | Delete a specific version |
+| `upload_template_image` | `import_templates:write` | Upload a cover image for a template |
+| `fork_template` | `import_templates:write` | Fork a public template into your account |
 
 :::info Destructive Tools
 Tools marked with ⚠️ have `destructiveHint: true`. Well-behaved AI clients will ask for confirmation before executing them.

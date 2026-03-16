@@ -22,6 +22,7 @@ Manage [Playgrounds](/core-concepts/playground) — live, running instances of y
 | `GET` | `/api/playgrounds/:id/compose` | `playgrounds:read` | Get the generated Compose YAML |
 | `GET` | `/api/playgrounds/:id/logs/:service` | `playgrounds:read` | Get service logs |
 | `GET` | `/api/playgrounds/:id/env_metadata` | `playgrounds:read` | Get merged environment variables with source metadata |
+| `GET` | `/api/playgrounds/:id/debug` | `playgrounds:read` | Get detailed diagnostic info for troubleshooting |
 
 ---
 
@@ -280,5 +281,28 @@ Returns the fully merged environment variables with source tracking:
   },
   "system_keys": ["PLAYGROUND_ID"],
   "generated_keys": ["SECRET_KEY_BASE"]
+}
+```
+
+---
+
+### Get Debug Info
+
+```bash
+GET /api/playgrounds/:id/debug
+```
+
+Returns comprehensive diagnostic information including the generated Compose YAML, augmented template, service configuration, build records, and branch clone details — useful for troubleshooting deployment issues.
+
+```json
+{
+  "id": 1,
+  "compose_project": "pg-1-feature-auth",
+  "generated_compose_yaml": "services:\n  web:\n    ...",
+  "augmented_compose_template": "...",
+  "services_configuration": [...],
+  "build_overrides": {},
+  "build_records": [...],
+  "branch_clones": [...]
 }
 ```

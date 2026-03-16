@@ -6,7 +6,7 @@ description: A Playspec is a blueprint that defines your environment's services 
 
 # Playspec
 
-A **Playspec** is a blueprint that defines the structure of your development environment. It wraps a Docker Compose file, classifies each service, and enriches it with platform-specific configuration like routing, IDE integration, and source code mounting.
+A **Playspec** is a blueprint that defines the structure of your development environment. It wraps a Docker Compose file, classifies each service, and enriches it with platform-specific configuration like routing and source code mounting.
 
 ## Overview
 
@@ -38,7 +38,7 @@ After providing a Compose YAML, you must classify each service as either **stati
 
 | Type | Description | Example |
 |------|-------------|---------|
-| **Static** | A standard Docker container that runs a pre-built image. No source code mounting, no IDE. | PostgreSQL, Redis, Elasticsearch |
+| **Static** | A standard Docker container that runs a pre-built image. No source code mounting. | PostgreSQL, Redis, Elasticsearch |
 | **Dynamic** | A source-code-backed service. Supports Dev mode (live editing) and Production mode (built image). | Your web app, API server, worker |
 
 ### Dynamic Service Configuration
@@ -101,7 +101,6 @@ When you save a Playspec, the platform generates an **augmented compose template
 
 - Traefik routing labels for each exposed service
 - Network configuration for service isolation and ingress
-- Code-server sidecar definitions for dynamic services
 - Volume mounts for source code
 - Platform-specific environment variables
 
