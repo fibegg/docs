@@ -46,6 +46,7 @@ Each key includes:
 |-------|-------------|
 | **Label** | A human-readable name for the key |
 | **Client ID** | Public identifier in the format `pk_live_*` |
+| **Prefix** | Keys use the `pk_live_` prefix for easy identification and secret scanning compatibility |
 | **Token** | Secret token (shown only once at creation time) |
 | **Scopes** | Permissions granted to this key |
 | **Expires At** | Optional expiration date |

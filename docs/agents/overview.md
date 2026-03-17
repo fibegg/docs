@@ -21,15 +21,14 @@ Agents in Playgrounds.dev are highly configurable. Using the **Agent Configurati
 - **Attach Skills:** Extend the agent’s capabilities with custom skills tailored for your specific environments.
 - **Integrate Custom MCPs:** Mount your own Model Context Protocol servers to give agents access to your internal tools and data.
 
-## Supported Authentication Types
-
-Because you provide the credentials, you have full control over the quotas and limits from your provider:
-
-| Auth Type | Credential Format |
-|---|---|
 | **OAuth / JSON** | Securely paste JSON metadata |
 | **Manual Token** | Standard API token or OAuth token |
 | **Device Code / Key** | Standard `auth.json` or API key |
+| **OpenCode** | Connect to [OpenCode](https://opencode.dev) for self-hosted or open LLM providers |
+
+## Agent Persistence
+
+Every agent comes with a dedicated **Persistent Volume** mounted at `/app/data`. This ensures that any files, models, or configurations the agent downloads or generates persist across restarts and across different Playgrounds where the agent is attached.
 
 
 ## Creating an Agent

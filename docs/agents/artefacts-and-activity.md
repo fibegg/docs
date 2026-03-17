@@ -19,6 +19,22 @@ The **Agent Activity** panel gives you a real-time window into your agent's oper
 - **Activity History:** Access and download full activity history.
 - **Persistent Sidebar:** The activity panel remains persistently available on desktop views, allowing you to debug and monitor the agent without leaving your workspace.
 
+## Agent Mutters
+
+**Mutters** represent the agent's internal "thinking" or reasoning process. While these are often technical or analytical, they are exposed to you for maximum transparency.
+
+- **Real-time Streaming:** Watch the agent's thoughts as they are generated.
+- **Toggle Visibility:** You can collapse or expand mutters to focus on the final actions or the reasoning behind them.
+- **Feedback Integration:** You can provide feedback specifically on a mutter (see below).
+
+## Agent Feedback & Comments
+
+You can interact directly with your agent's output and reasoning using the **Feedback System**.
+
+- **Text Selection:** Highlight any text within an **Artefact** or a **Mutter** to leave a comment or suggestion.
+- **Contextual Guidance:** Your feedback is injected directly into the agent's context, helping it correct course or refine its approach based on your specific needs.
+- **Visual Indicators:** Integrated markers show where feedback has been provided in the timeline.
+
 ## Agent Artefacts
 
 **Agent Artefacts** allow you to seamlessly transfer files to and from your AI agents using a dedicated, secure S3-backed storage bucket.
