@@ -12,6 +12,10 @@ const config = {
     { tagName: 'link', attributes: { rel: 'manifest', href: '/site.webmanifest' } },
   ],
 
+  scripts: [
+    '/js/docsbot.js',
+  ],
+
   future: {
     v4: true,
   },
