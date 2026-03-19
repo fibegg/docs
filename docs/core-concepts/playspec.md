@@ -106,6 +106,31 @@ When you save a Playspec, the platform generates an **augmented compose template
 
 This template is used internally and is not directly editable. It is regenerated whenever you modify the Playspec's services.
 
+## Zero-Downtime Deployments
+
+Services can opt into **zero-downtime deployments** by adding the `playgrounds.zerodowntime: true` label. When enabled, the platform uses a rolling update strategy during Playground recreation — the old container continues serving traffic while a new one boots up and is health-checked.
+
+### Requirements
+
+| Requirement | Reason |
+|-------------|--------|
+| `playgrounds.expose` must be set | Routing through Traefik is required for traffic switching |
+| `healthcheck:` must be defined | The platform needs to verify the new container is ready |
+| No `ports:` mapping | Host-port mappings prevent multiple containers from coexisting |
+| No `container_name:` | Named containers prevent scaling |
+
+### How It Works
+
+1. New images are built normally
+2. The new container is started alongside the old one
+3. Once the healthcheck passes, Traefik routes traffic to the new container
+4. The old container is gracefully drained and removed
+
+:::tip
+Zero-downtime only applies during **recreations**. The first Playground creation always uses the standard startup flow.
+:::
+
+
 ## Locked Status
 
 A Playspec becomes **locked** once any Playground references it. While locked:
