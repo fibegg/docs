@@ -17,8 +17,8 @@ Manage [Playgrounds](/core-concepts/playground) — live, running instances of y
 | `GET` | `/api/playgrounds/:id/status` | `playgrounds:read` | Get real-time status and service health |
 | `POST` | `/api/playgrounds` | `playgrounds:write` | Create a new Playground |
 | `DELETE` | `/api/playgrounds/:id` | `playgrounds:delete` | Destroy a Playground |
-| `POST` | `/api/playgrounds/:id/recreate` | `playgrounds:write` | Recreate a Playground |
-| `POST` | `/api/playgrounds/:id/restart` | `playgrounds:write` | Restart a Playground (in-place) |
+| `POST` | `/api/playgrounds/:id/rollout` | `playgrounds:write` | Rollout a Playground (incremental update) |
+| `POST` | `/api/playgrounds/:id/hard_restart` | `playgrounds:write` | Hard restart a Playground (full teardown) |
 | `POST` | `/api/playgrounds/:id/extend_expiration` | `playgrounds:write` | Extend the TTL |
 | `GET` | `/api/playgrounds/:id/compose` | `playgrounds:read` | Get the generated Compose YAML |
 | `GET` | `/api/playgrounds/:id/logs/:service` | `playgrounds:read` | Get service logs |
@@ -175,36 +175,37 @@ POST /api/playgrounds
 DELETE /api/playgrounds/:id
 ```
 
-Destroys all containers and resources. Returns `204 No Content`.
+Destroys all containers and resources. Returns `202 Accepted`.
 
 ---
 
-### Recreate Playground
+### Rollout
 
 ```bash
-POST /api/playgrounds/:id/recreate
+POST /api/playgrounds/:id/rollout
 ```
 
-Destroys containers and re-runs the full provisioning pipeline. Preserves volumes if the Playspec has `persist_volumes` enabled.
+Performs an incremental update of the Playground. Unchanged containers stay running. For services with zero-downtime enabled (`playgrounds.zerodowntime: true`), a rolling update is performed via `docker rollout`. Returns `200 OK`.
 
 ---
 
-### Restart Playground
+### Hard Restart
 
 ```bash
-POST /api/playgrounds/:id/restart
+POST /api/playgrounds/:id/hard_restart
 ```
 
-Performs an in-place restart of the Playground's containers without destroying the environment. The platform pre-pulls and pre-builds all required Docker images **before** bringing containers down, minimizing downtime. Returns `202 Accepted`.
+Performs a full teardown (`docker compose down`) followed by a fresh provisioning cycle (`docker compose up`). All containers restart. All images are re-pulled. Preserves volumes if the Playspec has `persist_volumes` enabled. Returns `200 OK`.
 
-**Restart vs Recreate:**
+**Rollout vs Hard Restart:**
 
-| | Restart | Recreate |
+| | Rollout | Hard Restart |
 |---|---|---|
-| Downtime | Minimal (pre-pull first) | Full reprovision cycle |
+| Downtime | Near-zero (unchanged services stay) | Full reprovision cycle |
 | Volumes | Always preserved | Preserved only if `persist_volumes` enabled |
-| Config changes | Not applied | Applied |
-| Use case | Recover stuck services | Apply spec changes |
+| Image refresh | Skipped (no prepull) | All images re-pulled |
+| Config changes | Applied incrementally | Applied from scratch |
+| Use case | Deploy code updates, apply small config changes | Recover stuck services, major infrastructure changes |
 
 ---
 

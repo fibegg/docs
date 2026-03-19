@@ -127,7 +127,7 @@ Services can opt into **zero-downtime deployments** by adding the `playgrounds.z
 4. The old container is gracefully drained and removed
 
 :::tip
-Zero-downtime only applies during **recreations**. The first Playground creation always uses the standard startup flow.
+Zero-downtime only applies during **rollouts**. The first Playground creation always uses the standard startup flow.
 :::
 
 

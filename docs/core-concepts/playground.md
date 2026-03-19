@@ -58,11 +58,11 @@ Every Playground has a **time-to-live (TTL)**:
 
 | Setting | Default |
 |---------|---------|
-| Standard Playground | **8 hours** |
+| Standard Playground | **No expiration** (never expires) |
 | Job mode Playground | **1 hour** |
-| Never expire | Set at creation time — TTL is disabled |
+| Custom TTL | Set at creation time |
 
-When a Playground expires, the [Playguard](/core-concepts/playground#playguard) background process cleans up its containers and resources.
+When a Playground has an expiration set and it expires, the [Playguard](/core-concepts/playground#playguard) background process cleans up its containers and resources.
 
 You can **extend the expiration** at any time — the extension adds the default TTL to the current expiration time (or to the current time if already expired).
 
@@ -133,15 +133,29 @@ When a Playspec has **Persist Volumes** enabled:
 - Only **one Playground** per Playspec+Playroom combination is allowed (to prevent volume conflicts)
 - Volumes are prefixed with `pv-{playspec_id}-{playroom_id}` for isolation
 
-## Recreate
+## Rollout & Hard Restart
 
-You can recreate a running Playground to:
+Two modes are available for re-deploying a running Playground:
 
+### Rollout (default)
+
+Runs `docker compose up` incrementally — unchanged containers stay running. For services with `playgrounds.zerodowntime: true`, a graceful rolling update is performed via `docker rollout`.
+
+Use Rollout to:
 - Apply updated environment variables
-- Force a fresh container start
-- Resolve drift or errors
+- Pick up new code changes
+- Recover from minor issues
 
-Recreate destroys all containers and restarts the full provisioning pipeline. If **Persist Volumes** is enabled, volumes are preserved by default.
+### Hard Restart
+
+Performs a full `docker compose down` followed by `docker compose up`. All containers restart and all images are re-pulled.
+
+Use Hard Restart when:
+- Rollout is insufficient (e.g., corrupted container state)
+- You need to force all images to their latest tags
+- Major infrastructure changes are required
+
+If **Persist Volumes** is enabled, volumes are preserved during both Rollout and Hard Restart.
 
 ## Job Mode
 
@@ -184,7 +198,7 @@ Playgrounds can optionally include an **AI coding agent** sidecar. When enabled,
 
 - **Git sync** — Pulls new commits for clean (non-dirty) branches
 - **Drift detection** — Detects missing containers, status mismatches, and image version drift
-- **Healing** — Recreates drifted Playgrounds automatically
+- **Healing** — Performs rollout on drifted Playgrounds automatically
 - **Expiration** — Cleans up expired Playgrounds
 - **Orphan cleanup** — Removes Docker resources not linked to active Playgrounds
 - **Build triggers** — Initiates builds for Production mode services when new commits are detected
