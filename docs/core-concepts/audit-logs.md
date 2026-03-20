@@ -43,7 +43,8 @@ Events are organized into categories:
 |-------|-------------|
 | Player created playground | You created a new Playground |
 | Player deleted playground | You destroyed a Playground |
-| Player triggered recreation | You recreated a running Playground |
+| Player triggered rollout | You performed a rollout on a running Playground |
+| Player triggered hard restart | You performed a hard restart on a running Playground |
 | Player extended expiration | You extended the TTL |
 | Player retried creation | You retried a failed creation |
 | Player committed changes | You committed code to a Playground's working directory |
@@ -61,8 +62,8 @@ Events are organized into categories:
 | Event | Description |
 |-------|-------------|
 | Drift detected | Playguard detected a mismatch between expected and actual state |
-| System recreated (drift) | Playguard automatically recreated the Playground to heal drift |
-| Recreation skipped (dirty) | Playguard skipped recreation because uncommitted changes were detected |
+| System rollout (drift) | Playguard automatically performed a rollout on the Playground to heal drift |
+| Rollout skipped (dirty) | Playguard skipped rollout because uncommitted changes were detected |
 | Build drift detected | A Production mode service has new commits that require a rebuild |
 
 ### Expiration

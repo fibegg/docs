@@ -131,15 +131,32 @@ Zero-downtime only applies during **rollouts**. The first Playground creation al
 :::
 
 
-## Locked Status
+## Live Playgrounds & Editing
 
-A Playspec becomes **locked** once any Playground references it. While locked:
+You can **edit a Playspec at any time**, even when Playgrounds are actively running from it. Changes take effect on the next **Rollout** or **Hard Restart** — you do not need to delete and recreate Playgrounds.
 
-- The Docker Compose YAML, services, mounted files, and registry credentials **cannot be modified**
-- The name and description **can** still be updated
-- The Playspec **cannot be deleted**
+The background reconciler (PlayguardJob) runs every ~60 seconds and automatically applies Playspec changes to drifted Playgrounds, so changes can propagate without any manual action.
 
-To unlock a Playspec, delete all Playgrounds that reference it.
+:::tip
+Only the Playspec **name, description, services, and compose YAML** are relevant for live playgrounds. Mounted files and registry credentials are also immediately usable after the next Rollout.
+:::
+
+### Stateful Playspecs (Persist Volumes)
+
+If **Persist Volumes** is enabled, take extra care when editing:
+
+| Action | Risk |
+|--------|------|
+| Renaming a service | Orphans the service's existing volume data |
+| Renaming a volume key in the Compose YAML | Disconnects live data (Docker identifies volumes by name) |
+| Disabling "Persist Volumes" | Deletes all persistent volumes immediately |
+| Adding a new service/volume | Safe — creates a new empty volume |
+
+The edit page will display a warning modal when you edit a stateful Playspec that has live Playgrounds.
+
+### Deletion
+
+A Playspec **cannot be deleted** while any Playground references it. Delete all associated Playgrounds first, then delete the Playspec.
 
 ## Statefulness
 

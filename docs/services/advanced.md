@@ -28,7 +28,7 @@ Dynamic services can be toggled between **Dev mode** (default) and **Production 
 
 When a service is in Production mode, the platform builds the Docker image **at Playground creation time** and uses that image for the lifetime of the Playground.
 
-> **Production services do not automatically rebuild when new commits land on the branch.** To pick up new code, the Playground must be manually re-created (destroyed and re-provisioned, or using the Recreate action). This is intentional — production environments are pinned to a known-good image.
+> **Production services do not automatically rebuild when new commits land on the branch.** To pick up new code, the Playground must be manually re-deployed (using the **Rollout** or **Hard Restart** action). This is intentional — production environments are pinned to a known-good image.
 
 The build process at creation time:
 
