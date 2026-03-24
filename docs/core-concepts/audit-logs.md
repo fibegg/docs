@@ -4,13 +4,13 @@ title: Audit Logs
 description: Track every Playground lifecycle event with a persistent timeline of system and player actions.
 ---
 
-# Playground Audit Logs
+# Platform Audit Logs
 
-Audit Logs provide a **persistent timeline** of every lifecycle event that occurs on your Playgrounds — from creation and deployment to drift detection, expiration, and deletion.
+Audit Logs provide a **persistent timeline** of lifecycle events across the fibe.gg platform — including playgrounds, agents, profiles, and backend resources. 
 
 ## Overview
 
-Every significant action on a Playground is automatically recorded as an audit log entry. These logs help you:
+Significant events are automatically recorded as an audit log entry. These logs help you:
 
 - **Troubleshoot** — Understand what happened and when during a Playground's lifecycle
 - **Track activity** — See which actions were triggered by you vs. the system
@@ -18,10 +18,11 @@ Every significant action on a Playground is automatically recorded as an audit l
 
 ## Where to View
 
-Audit logs are accessible in two places:
+Audit logs are accessible in multiple places depending on the resource context:
 
-1. **Playground detail page** — Click the **"Updated"** badge in the Playground header to see a timeline of recent events for that specific Playground
-2. **Audit Logs page** — Navigate to **Audit Logs** in the sidebar to see a paginated list of all events across all your Playgrounds
+1. **Playground detail page** — Click the **"Updated"** badge in the Playground header to see a timeline of recent events for that specific Playground.
+2. **Resource views** — Check the context menu or history tab for specific agents, templates, or playrooms.
+3. **Audit Logs page** — Navigate to **Audit Logs** in the sidebar to see a paginated list of all events across the platform.
 
 ## Actor Types
 
@@ -29,9 +30,11 @@ Each log entry records **who** triggered the action:
 
 | Actor | Description |
 |-------|-------------|
-| **Player** | An action you performed manually (e.g., creating, recreating, extending) |
-| **System** | An automated platform action (e.g., status transitions, creation steps) |
+| **Player** | An action you performed manually (e.g., creating, recreating, updating) |
+| **System** | An automated platform action (e.g., webhook deliveries, system initialization) |
 | **Playguard** | The background reconciliation process (e.g., drift healing, expiration cleanup) |
+| **Agent** | An action performed by an AI Agent on your behalf via MCP tools |
+| **API Key** | An action triggered programmatically using a scoped API Key |
 
 ## Event Categories
 

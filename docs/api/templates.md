@@ -22,6 +22,7 @@ Manage [Import Templates](/launch/templates) — reusable, versioned environment
 | `POST` | `/api/import_templates/:id/create_version` | `import_templates:write` | Create a new version |
 | `DELETE` | `/api/import_templates/:id/destroy_version` | `import_templates:write` | Delete a version |
 | `PATCH` | `/api/import_templates/:id/toggle_public` | `import_templates:write` | Toggle a version's public visibility |
+| `POST` | `/api/import_templates/:id/launch` | `import_templates:read` | Launch a playground directly from a template |
 
 ---
 
@@ -141,3 +142,33 @@ DELETE /api/import_templates/:id/destroy_version
 | `version_id` | integer | The version to delete |
 
 Deleting a version does not affect Playspecs or Playgrounds that were already created from it.
+
+---
+
+### Launch Template
+
+```bash
+POST /api/import_templates/:id/launch
+```
+
+Compiles the template and launches a new Playground natively on the backend. This is the equivalent of importing a template via the visual interface.
+
+**Request body:**
+
+```json
+{
+  "playroom_id": 1,
+  "version": 2, // optional, defaults to latest
+  "variables": {
+    "app_name": "my-cool-app",
+    "admin_password": "super-secret"
+  },
+  "name": "My Cool App Workspace" // optional
+}
+```
+
+The backend `TemplateCompilerService` will automatically:
+1. Substitute any provided `variables` into `$$var__` placeholders.
+2. Generate secure 16-character hex strings for any `$$random__` placeholders.
+3. Validate variables against regex patterns defined in `fibe.gg > variables`.
+4. Deploy the compiled docker compose string to the target playroom.

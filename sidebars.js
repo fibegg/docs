@@ -15,6 +15,7 @@ const sidebars = {
         'core-concepts/audit-logs',
         'core-concepts/security',
         'core-concepts/onboarding-wizard',
+        'core-concepts/profile',
       ],
     },
     {

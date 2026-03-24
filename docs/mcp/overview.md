@@ -137,6 +137,7 @@ All standard [API authentication](/api/overview) rules apply. An API key without
 
 | Tool | Required Scope | Description |
 |------|-------|-------------|
+| `launch_template` | `import_templates:read`, `launch:write` | **One-shot:** ImportTemplate ID + variables → compiled deployed environment |
 | `list_templates` | `import_templates:read` | List your templates |
 | `get_template` | `import_templates:read` | Get template details and versions |
 | `search_templates` | `import_templates:read` | Search templates by name, category, and filters |

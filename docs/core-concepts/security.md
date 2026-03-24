@@ -61,6 +61,26 @@ API keys are scoped — they only grant access to what you explicitly allow:
 
 ---
 
+## Secret Vault
+
+The Secret Vault allows you to store sensitive credentials securely. This is especially useful for securely providing credentials to AI agents connected via the MCP (Model Context Protocol).
+
+### Managing Secrets
+
+Secrets are stored as Key-Value pairs with an optional description.
+
+1. Go to **Profile → Advanced Settings** (or find the dedicated **Secrets** section).
+2. Click **New Secret**.
+3. Provide a unique alphanumeric **Key** (e.g., `OPENAI_API_KEY`).
+4. Provide the sensitive **Value**.
+5. Optionally add a description.
+
+:::important
+Values are encrypted at rest. Be cautious about who or which agents have access to retrieve your secrets. AI agents with the correct MCP tools can retrieve these values automatically.
+:::
+
+---
+
 ## Webhooks
 
 Webhooks let external services receive real-time notifications when things happen in fibe.gg.
