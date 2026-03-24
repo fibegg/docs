@@ -17,6 +17,7 @@ The **Agent Activity** panel gives you a real-time window into your agent's oper
 - **Thinking Chain Visualization:** See exactly how the agent is reasoning before it takes action. The UI displays the agent's internal "thinking" processes (e.g., specific to advanced models that expose their reasoning).
 - **Grouped Commands:** If an agent runs multiple commands consecutively (3+), they are grouped automatically into a collapsible block to keep the chat interface clean and readable.
 - **Activity History:** Access and download full activity history.
+- **Public Timelines:** Enable "Build in Public" to generate a shareable URL where anyone can follow your agent's progress. This features a premium, real-time timeline of all actions and artefacts.
 - **Persistent Sidebar:** The activity panel remains persistently available on desktop views, allowing you to debug and monitor the agent without leaving your workspace.
 
 ## Agent Mutters

@@ -12,6 +12,7 @@ Stored Agents let you **permanently register customized AI provider credentials 
 - **Attach** them to any [Playground](/core-concepts/playground), injecting your configuration into the agent sidecar automatically
 - **Spin up a general-purpose AI chat** on any of your [Playrooms](/core-concepts/playroom) with a single click — no Playground required
 - **Agent Mutters:** View the internal reasoning and "thoughts" of your agents directly in the UI.
+- **Build in Public:** Share your agent's live activity timeline with the community via a public URL.
 - **Re-use** them across multiple Playgrounds and chat sessions without configuration overhead
 
 ## Customizing Agents
