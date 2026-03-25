@@ -6,7 +6,13 @@ description: A Playroom is a remote Docker host where your Playgrounds run.
 
 # Playroom
 
-A **Playroom** is a remote Docker host that serves as the infrastructure layer for your environments. Every [Playground](/core-concepts/playground) runs on exactly one Playroom.
+A **Playroom** is a remote Docker host that serves as the infrastructure layer for your environments. Every [Playground](/core-concepts/playground) runs on exactly one Playroom.## Infrastructure Gateway (SSH Terminal)
+
+Every Playroom includes a built-in interactive SSH Terminal. This is your direct connection to the host machine—a beacon in the dark that allows you to touch the metal of your fleet.
+
+- **Interactive Shell**: Execute commands in real-time.
+- **Secure Access**: Tunnel through encrypted sessions managed by Fibe.
+- **Diagnostics**: Rapidly investigate host status without external tools.
 
 ## Overview
 
@@ -45,7 +51,7 @@ After configuring your Playroom, use the **Test Connection** button to verify:
 
 1. **SSH connectivity** — Can the platform reach your server?
 2. **Docker availability** — Is Docker installed and accessible to the configured user?
-3. **Directory access** — Can the platform write to `/opt/phoenix`?
+3. **Directory access** — Can the platform write to `/opt/fibe`?
 
 ## TLS / HTTPS
 
@@ -84,7 +90,7 @@ Before creating a Playroom, your remote server must meet these requirements:
 | **Docker** | Docker Engine must be installed and accessible to the configured user |
 | **User permissions** | The user must have permission to run `docker` commands (or `sudo` must be enabled) |
 | **Docker group** | The user should be a member of the `docker` group for agent container Docker socket access |
-| **Directory access** | The user must have read/write access to `/opt/phoenix` |
+| **Directory access** | The user must have read/write access to `/opt/fibe` |
 | **Inbound ports** | Ports `80` and `443` must be open for HTTP/HTTPS traffic |
 | **DNS** | Your domain(s) must have A/CNAME records pointing to the server's IP address |
 

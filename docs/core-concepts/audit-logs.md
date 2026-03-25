@@ -24,6 +24,10 @@ Audit logs are accessible in multiple places depending on the resource context:
 2. **Resource views** — Check the context menu or history tab for specific agents, templates, or playrooms.
 3. **Audit Logs page** — Navigate to **Audit Logs** in the sidebar to see a paginated list of all events across the platform.
 
+### Playground Audit Logs
+
+You can track changes from a specific playground directly in your public profile timeline. This is enabled in the Agent Settings by selecting a `build_in_public_playground_id`. When configured, every file change or service update in that playground is broadcasted to your public followers.
+
 ## Actor Types
 
 Each log entry records **who** triggered the action:

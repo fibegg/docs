@@ -75,4 +75,8 @@ Each account can store up to **10 agents** — for example, separate agents for 
 | **Authenticated** | Credentials stored and ready to use |
 | **Revoked** | Credentials manually revoked |
 
+## Provider API Key Mode
+
+For specific providers like Gemini or OpenAI, you can choose to use a raw **API Key** instead of the full OAuth flow. This is toggled in the agent detail card and allows for faster service-account based authentication.
+
 An agent is **usable** when its status is `authenticated`.

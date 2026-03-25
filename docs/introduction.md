@@ -2,12 +2,18 @@
 slug: /
 sidebar_position: 1
 title: Introduction
-description: Welcome to fibe.gg — instant cloud development environments powered by Docker Compose.
----
 
-# Welcome to fibe.gg
+Welcome to the heart of infrastructure. Fibe is the fabric where your ideas take form, manifesting complete, isolated cloud environments in a single breath.
 
-fibe.gg gives your team **instant, isolated full-stack cloud environments** powered by Docker Compose. Connect your GitHub repository, define your stack, and launch a live environment — complete with unique subdomains and automatic HTTPS — in seconds.
+## The Essence of Fibe
+
+More than a platform, Fibe is a gateway to seamless development. By leveraging the power of Docker and the intuition of AI, we've crafted a space where the distance between thought and execution is zero.
+
+### Infinite Playgrounds
+Spin up isolated, full-stack environments. No rituals of manual setup, just instant manifestation.
+
+### Transmuted Data
+Move your progress between worlds. Data Portability ensures your essence is never tethered to a single environment.
 
 ## How It Works
 

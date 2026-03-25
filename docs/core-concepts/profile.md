@@ -14,6 +14,7 @@ The profile page provides a modernized interface with several key capabilities:
 - **Identity & Social**: Customize your display name, description, and configure a public profile.
 - **Billing & Subscriptions**: Manage active plans (e.g., Tutorial, Single, Multiplayer) and view usage quotas.
 - **Advanced Settings**: A dedicated, collapsible section to manage API Keys, Webhook Endpoints, and the Secret Vault without cluttering your main view.
+- **Data Portability**: Export your entire account state (Playrooms, Agents, Secrets) as a compressed `.jsonl` file or import it into a new environment.
 
 ## Social Profiles & Public Templates
 
