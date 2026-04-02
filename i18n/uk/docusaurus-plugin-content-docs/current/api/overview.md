@@ -24,7 +24,7 @@ API підтримує два методи автентифікації:
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-  https://fibe.gg/api/playrooms
+  https://fibe.gg/api/marquees
 ```
 
 ### На основі сесії
@@ -60,13 +60,13 @@ API-токен показується **тільки один раз** при с
 
 | Скоуп | Опис |
 |-------|------|
-| `playrooms:read` | Перегляд Playroom |
-| `playrooms:write` | Створення та оновлення Playroom |
-| `playrooms:delete` | Видалення Playroom |
-| `playrooms:manage` | Повне керування Playroom (включає read, write, delete + операції з SSH-ключами) |
-| `playzones:read` | Перегляд Playzone |
-| `playzones:write` | Створення, оновлення, підключення та синхронізація Playzone |
-| `playzones:delete` | Видалення Playzone |
+| `marquees:read` | Перегляд Marquee |
+| `marquees:write` | Створення та оновлення Marquee |
+| `marquees:delete` | Видалення Marquee |
+| `marquees:manage` | Повне керування Marquee (включає read, write, delete + операції з SSH-ключами) |
+| `props:read` | Перегляд Prop |
+| `props:write` | Створення, оновлення, підключення та синхронізація Prop |
+| `props:delete` | Видалення Prop |
 | `playspecs:read` | Перегляд Playspec |
 | `playspecs:write` | Створення та оновлення Playspec (включаючи монтовані файли та облікові дані реєстрів) |
 | `playspecs:delete` | Видалення Playspec |
@@ -106,7 +106,7 @@ API-токен показується **тільки один раз** при с
 | `401` | `UNAUTHORIZED` | Необхідна автентифікація або вона не вдалася |
 | `403` | `FORBIDDEN` | Недостатньо дозволів або порушення скоупу |
 | `404` | `RESOURCE_NOT_FOUND` | Запитаний ресурс не існує |
-| `409` | `CONFLICT` | Конфлікт стану ресурсу (напр., видалення Playroom з активними Playground) |
+| `409` | `CONFLICT` | Конфлікт стану ресурсу (напр., видалення Marquee з активними Playground) |
 | `422` | `VALIDATION_FAILED` | Тіло запиту не пройшло валідацію |
 | `422` | `LOCKED` | Ресурс заблокований і не може бути змінений |
 | `422` | `INVALID_STATE` | Операція не валідна для поточного стану ресурсу |
@@ -117,7 +117,7 @@ API-токен показується **тільки один раз** при с
 Оскільки API підтримує автентифікацію на основі сесії, ви можете тестувати ендпоінти прямо у браузері, будучи авторизованим. Просто перейдіть за URL API, наприклад:
 
 ```
-https://fibe.gg/api/playrooms
+https://fibe.gg/api/marquees
 ```
 
 Відповідь буде у форматі JSON. Використовуйте інструменти розробника браузера або утиліту [jq](https://jqlang.github.io/jq/) для форматування.

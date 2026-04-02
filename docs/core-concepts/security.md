@@ -162,17 +162,17 @@ API keys are scoped — they only grant access to what you explicitly allow:
 
 | Scope | Access |
 |-------|--------|
-| `playrooms:read` | List and view Playrooms |
-| `playrooms:write` | Create Playrooms |
-| `playrooms:delete` | Delete Playrooms |
+| `marquees:read` | List and view Marquees |
+| `marquees:write` | Create Marquees |
+| `marquees:delete` | Delete Marquees |
 | `playspecs:read` | List and view Playspecs |
 | `playspecs:write` | Create and update Playspecs |
 | `playspecs:delete` | Delete Playspecs |
 | `playgrounds:read` | List and view Playgrounds |
 | `playgrounds:write` | Create, extend, and recreate Playgrounds |
 | `playgrounds:delete` | Destroy Playgrounds |
-| `playzones:read` | List and view Playzones |
-| `playzones:write` | Create Playzones |
+| `props:read` | List and view Props |
+| `props:write` | Create Props |
 | `import_templates:read` | Browse and search templates |
 | `import_templates:write` | Create and manage templates |
 | `genies:read` | List and view genies and their data |
@@ -226,8 +226,8 @@ Webhooks let external services receive real-time notifications when things happe
 | `playground.error` | A Playground enters an error state |
 | `playground.expiring` | A Playground is about to expire |
 | `playground.recreated` | A Playground is recreated from scratch |
-| `playroom.created` | A new Playroom is registered |
-| `playroom.deleted` | A Playroom is deleted |
+| `marquee.created` | A new Marquee is registered |
+| `marquee.deleted` | A Marquee is deleted |
 | `playspec.created` | A new Playspec is created |
 | `playspec.deleted` | A Playspec is deleted |
 

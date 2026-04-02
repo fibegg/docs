@@ -14,8 +14,8 @@ The following entities can be included in an export:
 
 | Entity | Description |
 |--------|-------------|
-| **Playrooms** | Your configured remote hosts and their settings |
-| **Playzones** | Connected repositories and their sync configuration |
+| **Marquees** | Your configured remote hosts and their settings |
+| **Props** | Connected repositories and their sync configuration |
 | **Playspecs** | Environment blueprints including service definitions |
 | **Genies** | Stored AI provider configurations and credentials |
 | **Playgrounds** | Running or stopped environment instances |

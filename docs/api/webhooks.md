@@ -119,8 +119,8 @@ curl https://your-instance.com/api/webhook_endpoints/1/deliveries \
 | Entity | Events |
 |---|---|
 | Playground | `playground.created`, `playground.updated`, `playground.destroyed`, `playground.status.changed`, `playground.error`, `playground.expired`, `playground.drift.detected`, and more |
-| Playroom | `playroom.created`, `playroom.updated`, `playroom.destroyed` |
-| Playzone | `playzone.created`, `playzone.updated`, `playzone.destroyed` |
+| Marquee | `marquee.created`, `marquee.updated`, `marquee.destroyed` |
+| Prop | `prop.created`, `prop.updated`, `prop.destroyed` |
 | Playspec | `playspec.created`, `playspec.updated`, `playspec.destroyed` |
 | Genie | `genie.created`, `genie.updated`, `genie.destroyed`, `genie.authenticated`, `genie.revoked` |
 | Template | `template.created`, `template.updated`, `template.destroyed` |

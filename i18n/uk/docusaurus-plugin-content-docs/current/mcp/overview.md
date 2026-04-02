@@ -23,10 +23,10 @@ POST /api/keys
     "label": "MCP Genie Key",
     "scopes": [
       "mcp:access",
-      "playrooms:read", "playrooms:write",
+      "marquees:read", "marquees:write",
       "playspecs:read", "playspecs:write",
       "playgrounds:read", "playgrounds:write",
-      "playzones:read", "playzones:write",
+      "props:read", "props:write",
       "repos:write",
       "launch:write",
       "import_templates:read", "import_templates:write"
@@ -56,11 +56,11 @@ POST /api/keys
 
 Попросіть вашого AI Генія виконати такі дії:
 
-> "Покажи мої playrooms та які з них активні"
+> "Покажи мої marquees та які з них активні"
 
 > "Створи playspec з Rails-додатком, PostgreSQL та Redis"
 
-> "Запусти playground з мого playspec web-stack на playroom 1"
+> "Запусти playground з мого playspec web-stack на marquee 1"
 
 Геній використає відповідні MCP-інструменти для виконання вашого запиту.
 
@@ -84,15 +84,15 @@ POST /api/keys
 
 ## Доступні інструменти
 
-### Playrooms (Docker-хости)
+### Marquees (Docker-хости)
 
 | Інструмент | Необхідна область | Опис |
 |------------|-------------------|------|
-| `list_playrooms` | `playrooms:read` | Перелік усіх playrooms |
-| `get_playroom` | `playrooms:read` | Отримати деталі playroom |
-| `create_playroom` | `playrooms:write` | Створити новий playroom |
-| `delete_playroom` ⚠️ | `playrooms:delete` | Видалити playroom |
-| `test_playroom_connection` | `playrooms:read` | Перевірити SSH/Docker-з'єднання |
+| `list_marquees` | `marquees:read` | Перелік усіх marquees |
+| `get_marquee` | `marquees:read` | Отримати деталі marquee |
+| `create_marquee` | `marquees:write` | Створити новий marquee |
+| `delete_marquee` ⚠️ | `marquees:delete` | Видалити marquee |
+| `test_marquee_connection` | `marquees:read` | Перевірити SSH/Docker-з'єднання |
 
 ### Playspecs (шаблони середовищ)
 
@@ -118,14 +118,14 @@ POST /api/keys
 | `recreate_playground` ⚠️ | `playgrounds:write` | Перерозгорнути з нуля |
 | `extend_playground` | `playgrounds:write` | Продовжити TTL |
 
-### Playzones (GitHub-репозиторії)
+### Props (GitHub-репозиторії)
 
 | Інструмент | Необхідна область | Опис |
 |------------|-------------------|------|
-| `list_playzones` | `playzones:read` | Перелік підключених репозиторіїв |
-| `get_playzone` | `playzones:read` | Отримати деталі репозиторію |
-| `get_playzone_branches` | `playzones:read` | Перелік гілок |
-| `create_playzone` | `playzones:write` | Підключити GitHub-репозиторій |
+| `list_props` | `props:read` | Перелік підключених репозиторіїв |
+| `get_prop` | `props:read` | Отримати деталі репозиторію |
+| `get_prop_branches` | `props:read` | Перелік гілок |
+| `create_prop` | `props:write` | Підключити GitHub-репозиторій |
 
 ### Запуск
 

@@ -28,7 +28,7 @@ POST /api/launch
 {
   "name": "my-environment",
   "compose_yaml": "services:\n  web:\n    image: nginx:latest\n    ports:\n      - \"80:80\"\n  db:\n    image: postgres:16\n    environment:\n      POSTGRES_PASSWORD: secret",
-  "playroom_id": 1,
+  "marquee_id": 1,
   "create_playground": true,
   "persist_volumes": false,
   "persist_volumes": false,
@@ -42,7 +42,7 @@ POST /api/launch
 |----------|-----|-------------|------|
 | `name` | string | Так | Назва для створеного Playspec (та Playground) |
 | `compose_yaml` | string | Так | Docker Compose YAML визначення |
-| `playroom_id` | integer | Ні | Playroom для розгортання (обовʼязковий, якщо `create_playground` true) |
+| `marquee_id` | integer | Ні | Marquee для розгортання (обовʼязковий, якщо `create_playground` true) |
 | `create_playground` | boolean | Ні | Чи створити та запустити Playground одразу (за замовчуванням: false) |
 | `persist_volumes` | boolean | Ні | Увімкнути збереження томів на Playspec (за замовчуванням: false) |
 | `genie` | string | Ні | Провайдер AI-агента (напр., `custom-assistant`) |
@@ -53,7 +53,7 @@ POST /api/launch
 {
   "playspecs_created": 42,
   "playground_id": 15,
-  "playzones_created": [1, 2]
+  "props_created": [1, 2]
 }
 ```
 
@@ -61,16 +61,16 @@ POST /api/launch
 |------|------|
 | `playspecs_created` | ID новоствореного Playspec |
 | `playground_id` | ID Playground (присутній тільки якщо `create_playground` було true) |
-| `playzones_created` | ID автоматично створених Playzone з Compose визначення |
+| `props_created` | ID автоматично створених Prop з Compose визначення |
 
 ## Як це працює
 
 Launch ендпоінт оркеструє кілька операцій одним викликом:
 
 1. **Парсить** Docker Compose YAML
-2. **Автоматично створює Playzone** для `build`-сервісів, що посилаються на локальні Dockerfile (якщо репозиторій можна визначити)
+2. **Автоматично створює Prop** для `build`-сервісів, що посилаються на локальні Dockerfile (якщо репозиторій можна визначити)
 3. **Створює Playspec** з наданим Compose YAML та автокласифікованими сервісами
-4. **Опціонально створює Playground** на вказаному Playroom
+4. **Опціонально створює Playground** на вказаному Marquee
 
 Це ідеально для:
 
@@ -87,7 +87,7 @@ curl -X POST https://fibe.gg/api/launch \
   -d "{
     \"name\": \"pr-$PR_NUMBER\",
     \"compose_yaml\": \"$(cat docker-compose.yml)\",
-    \"playroom_id\": $PLAYROOM_ID,
+    \"marquee_id\": $MARQUEE_ID,
     \"create_playground\": true
   }"
 ```

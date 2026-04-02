@@ -14,16 +14,16 @@ fibe.gg дає вашій команді **миттєві, ізольовані 
 Кожне середовище в fibe.gg побудоване на чотирьох основних концепціях:
 
 ```
-Playroom → Playzone → Playspec → Playground
+Marquee → Prop → Playspec → Playground
   (хост)     (репо)    (блюпринт)  (запущене середовище)
 ```
 
 | Концепція | Що це таке |
 |-----------|-----------|
-| [**Playroom**](/core-concepts/playroom) | Віддалений Docker-хост, де працюють ваші середовища |
-| [**Playzone**](/core-concepts/playzone) | Підключений GitHub-репозиторій, що надає вихідний код |
+| [**Marquee**](/core-concepts/marquee) | Віддалений Docker-хост, де працюють ваші середовища |
+| [**Prop**](/core-concepts/prop) | Підключений GitHub-репозиторій, що надає вихідний код |
 | [**Playspec**](/core-concepts/playspec) | Блюпринт, що визначає сервіси та конфігурацію вашого середовища |
-| [**Playground**](/core-concepts/playground) | Живий, запущений екземпляр Playspec на Playroom |
+| [**Playground**](/core-concepts/playground) | Живий, запущений екземпляр Playspec на Marquee |
 
 ## Що ви можете робити
 
@@ -44,7 +44,7 @@ Playroom → Playzone → Playspec → Playground
 |-----------|--------------|
 | Запустити перше середовище | [Запуск](/launch) |
 | Переглянути готові шаблони | [Stargate](/launch/stargate) |
-| Зрозуміти основні концепції | [Основні концепції](/core-concepts/playroom) |
+| Зрозуміти основні концепції | [Основні концепції](/core-concepts/marquee) |
 | Налаштувати сервіси | [Сервіси](/services/overview) |
 | Використати REST API | [API Довідник](/api/overview) |
 | Використати AI агенти зі своїми обліковими даними | [Агенти](/genies/overview) |

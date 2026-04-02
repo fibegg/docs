@@ -7,8 +7,8 @@ const sidebars = {
       label: 'Core Concepts',
       collapsed: false,
       items: [
-        'core-concepts/playroom',
-        'core-concepts/playzone',
+        'core-concepts/marquee',
+        'core-concepts/prop',
         'core-concepts/playspec',
         'core-concepts/playground',
         'core-concepts/job-mode',
@@ -68,8 +68,8 @@ const sidebars = {
       label: 'API Reference',
       items: [
         'api/overview',
-        'api/playrooms',
-        'api/playzones',
+        'api/marquees',
+        'api/props',
         'api/playspecs',
         'api/playgrounds',
         'api/repositories',

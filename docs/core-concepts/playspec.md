@@ -27,7 +27,7 @@ Think of a Playspec as a **reusable template** for environments. You define it o
 Every Playspec starts with a standard Docker Compose YAML. You can:
 
 - **Write it manually** in the built-in YAML editor
-- **Load it from a Playzone** — If your repository contains a `docker-compose.yml`, the platform auto-detects and imports it
+- **Load it from a Prop** — If your repository contains a `docker-compose.yml`, the platform auto-detects and imports it
 - **Import from a template** — Use a pre-built template from [Stargate](/launch/stargate) or [My Fleet](/launch/my-fleet)
 
 The platform parses and validates the Compose file, extracting service definitions, ports, and other configuration.
@@ -47,7 +47,7 @@ Each dynamic service requires additional configuration:
 
 | Field | Description | Default |
 |-------|-------------|---------|
-| **Playzone** | Which GitHub repository provides the source code | — |
+| **Prop** | Which GitHub repository provides the source code | — |
 | **Dockerfile Path** | Path to the Dockerfile within the repository | `Dockerfile` |
 | **Env File Path** | Path to the `.env.example` file for default environment variables | `.env.example` |
 | **Working Directory** | Container working directory where source code is mounted | `/app` |
@@ -75,7 +75,7 @@ Each service can be exposed to the network with the following settings:
 | **Internal** | Protected by HTTP Basic Auth — requires the Playground's username and password |
 
 :::tip Subdomain Naming
-Subdomains are defined on the Playspec level as defaults, but can be **overridden per Playground**. This allows multiple Playgrounds from the same Playspec to coexist on the same Playroom without subdomain conflicts.
+Subdomains are defined on the Playspec level as defaults, but can be **overridden per Playground**. This allows multiple Playgrounds from the same Playspec to coexist on the same Marquee without subdomain conflicts.
 :::
 
 ## Mounted Files
@@ -93,7 +93,7 @@ Each mounted file is configured with:
 
 ## Registry Credentials
 
-If your services use images from private Docker registries, you can add registry credentials to the Playspec. The platform uses these credentials to authenticate `docker pull` operations on the Playroom.
+If your services use images from private Docker registries, you can add registry credentials to the Playspec. The platform uses these credentials to authenticate `docker pull` operations on the Marquee.
 
 ## Augmented Compose Template
 
@@ -163,8 +163,8 @@ A Playspec **cannot be deleted** while any Playground references it. Delete all 
 When **Persist Volumes** is enabled, the Playspec is considered **stateful**. This means:
 
 - Docker volumes are preserved across Playground recreations
-- Volume names are prefixed with `pv-{playspec_id}-{playroom_id}` for isolation
-- Only one Playground per Playspec+Playroom combination can exist at a time (to prevent volume conflicts)
+- Volume names are prefixed with `pv-{playspec_id}-{marquee_id}` for isolation
+- Only one Playground per Playspec+Marquee combination can exist at a time (to prevent volume conflicts)
 
 When disabled, volumes are destroyed and recreated with each Playground recreation.
 

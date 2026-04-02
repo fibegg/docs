@@ -24,7 +24,7 @@ The recommended method for programmatic access. Include your API key in the `Aut
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-  https://fibe.gg/api/playrooms
+  https://fibe.gg/api/marquees
 ```
 
 ### Session-Based
@@ -61,13 +61,13 @@ Each API key has one or more scopes that control which resources and actions it 
 
 | Scope | Description |
 |-------|-------------|
-| `playrooms:read` | List and view Playrooms |
-| `playrooms:write` | Create and update Playrooms |
-| `playrooms:delete` | Delete Playrooms |
-| `playrooms:manage` | Full Playroom management (includes read, write, delete + SSH key operations) |
-| `playzones:read` | List and view Playzones |
-| `playzones:write` | Create, update, attach, and sync Playzones |
-| `playzones:delete` | Delete Playzones |
+| `marquees:read` | List and view Marquees |
+| `marquees:write` | Create and update Marquees |
+| `marquees:delete` | Delete Marquees |
+| `marquees:manage` | Full Marquee management (includes read, write, delete + SSH key operations) |
+| `props:read` | List and view Props |
+| `props:write` | Create, update, attach, and sync Props |
+| `props:delete` | Delete Props |
 | `playspecs:read` | List and view Playspecs |
 | `playspecs:write` | Create and update Playspecs (including mounted files and registry credentials) |
 | `playspecs:delete` | Delete Playspecs |
@@ -109,7 +109,7 @@ All error responses follow a consistent format:
 | `401` | `UNAUTHORIZED` | Authentication required or failed |
 | `403` | `FORBIDDEN` | Insufficient permissions or scope violation |
 | `404` | `RESOURCE_NOT_FOUND` | The requested resource does not exist |
-| `409` | `CONFLICT` | Resource state conflict (e.g., deleting a Playroom with active Playgrounds) |
+| `409` | `CONFLICT` | Resource state conflict (e.g., deleting a Marquee with active Playgrounds) |
 | `422` | `VALIDATION_FAILED` | Request body failed validation |
 | `422` | `LOCKED` | Resource is locked and cannot be modified |
 | `422` | `INVALID_STATE` | The operation is not valid for the resource's current state |
@@ -120,7 +120,7 @@ All error responses follow a consistent format:
 Since the API supports session-based authentication, you can test endpoints directly in your browser while logged in. Simply navigate to an API URL like:
 
 ```
-https://fibe.gg/api/playrooms
+https://fibe.gg/api/marquees
 ```
 
 The response will be JSON. Use the browser's developer tools or a tool like [jq](https://jqlang.github.io/jq/) for formatting.

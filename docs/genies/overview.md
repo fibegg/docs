@@ -10,7 +10,7 @@ Stored Genies let you **permanently register customized AI provider credentials 
 
 - **Bridge Hub:** Access all your genies and chats from a single, unified interface.
 - **Attach** them to any [Playground](/core-concepts/playground), injecting your configuration into the genie sidecar automatically
-- **Spin up a general-purpose AI chat** on any of your [Playrooms](/core-concepts/playroom) with a single click — no Playground required
+- **Spin up a general-purpose AI chat** on any of your [Marquees](/core-concepts/marquee) with a single click — no Playground required
 - **Genie Mutters:** View the internal reasoning and "thoughts" of your genies directly in the UI.
 - **Build in Public:** Share your genie's live activity timeline with the community via a public URL.
 - **Re-use** them across multiple Playgrounds and chat sessions without configuration overhead

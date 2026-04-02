@@ -1,12 +1,12 @@
 ---
 sidebar_position: 4
 title: Playground
-description: A Playground is a live, running instance of a Playspec on a Playroom.
+description: A Playground is a live, running instance of a Playspec on a Marquee.
 ---
 
 # Playground
 
-A **Playground** is a live, running development environment. It is an instance of a [Playspec](/core-concepts/playspec) deployed to a [Playroom](/core-concepts/playroom) — your code running on real infrastructure, accessible via unique HTTPS URLs.
+A **Playground** is a live, running development environment. It is an instance of a [Playspec](/core-concepts/playspec) deployed to a [Marquee](/core-concepts/marquee) — your code running on real infrastructure, accessible via unique HTTPS URLs.
 
 ## Overview
 
@@ -85,7 +85,7 @@ Each Playground is isolated via a unique Docker Compose project name in the form
 pg-{id}-{slug}
 ```
 
-For example: `pg-42-my-web-app`. This ensures complete container and network isolation between Playgrounds on the same Playroom.
+For example: `pg-42-my-web-app`. This ensures complete container and network isolation between Playgrounds on the same Marquee.
 
 ## Service Configuration
 
@@ -95,7 +95,7 @@ When creating a Playground, you can customize each service:
 
 For dynamic services, you can choose which Git branch to use. Options:
 
-- **Use default branch** — Inherits from the Playzone's default branch
+- **Use default branch** — Inherits from the Prop's default branch
 - **Select a specific branch** — Pick any branch from the repository
 - **Create a new branch** — Specify a base branch and a new branch name; the platform creates it on the remote host
 
@@ -110,7 +110,7 @@ See [Environment Variables](/services/environment-variables) for the full merge 
 
 ### Subdomain Overrides
 
-Override the default subdomain for any exposed service. This is essential when running multiple Playgrounds from the same Playspec on the same Playroom — each needs unique subdomains.
+Override the default subdomain for any exposed service. This is essential when running multiple Playgrounds from the same Playspec on the same Marquee — each needs unique subdomains.
 
 ### Production Mode
 
@@ -130,8 +130,8 @@ The dirty status of each service is visible in the Playground detail view.
 When a Playspec has **Persist Volumes** enabled:
 
 - Docker volumes survive Playground **recreations** (containers are destroyed and recreated, but data volumes are preserved)
-- Only **one Playground** per Playspec+Playroom combination is allowed (to prevent volume conflicts)
-- Volumes are prefixed with `pv-{playspec_id}-{playroom_id}` for isolation
+- Only **one Playground** per Playspec+Marquee combination is allowed (to prevent volume conflicts)
+- Volumes are prefixed with `pv-{playspec_id}-{marquee_id}` for isolation
 
 ## Rollout & Hard Restart
 
@@ -186,7 +186,7 @@ The Debug page provides a comprehensive view of a Playground's internal state �
 
 ## Web SSH Terminal
 
-Playgrounds include a fully-featured **Web SSH Terminal** directly in the browser. You can securely connect to your Playroom hosts and manage your containers without needing local SSH keys or terminal applications.
+Playgrounds include a fully-featured **Web SSH Terminal** directly in the browser. You can securely connect to your Marquee hosts and manage your containers without needing local SSH keys or terminal applications.
 
 ## Playground Genie
 
@@ -208,4 +208,4 @@ Playgrounds can optionally include an **AI coding genie** sidecar. When enabled,
 | Limit | Value |
 |-------|-------|
 | Maximum Playgrounds per account | **1,000** |
-| Maximum Playgrounds per Playroom | **100** |
+| Maximum Playgrounds per Marquee | **100** |

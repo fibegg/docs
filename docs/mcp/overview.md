@@ -23,11 +23,14 @@ POST /api/keys
     "label": "MCP Genie Key",
     "scopes": [
       "mcp:access",
-      "playrooms:read", "playrooms:write",
+      "marquees:read", "marquees:write",
       "playspecs:read", "playspecs:write",
       "playgrounds:read", "playgrounds:write",
-      "playzones:read", "playzones:write",
-      "repos:write",
+      "props:read", "props:write",
+      "agents:read", "agents:write",
+      "secrets:read", "secrets:write",
+      "webhooks:read", "webhooks:write",
+      "mutations:read", "mutations:write",
       "launch:write",
       "import_templates:read", "import_templates:write"
     ]
@@ -56,11 +59,11 @@ Add the following to your MCP client configuration:
 
 Ask your AI genie things like:
 
-> "List my playrooms and show which ones are active"
+> "List my marquees and show which ones are active"
 
 > "Create a playspec with a Rails app, PostgreSQL, and Redis"
 
-> "Launch a playground from my web-stack playspec on playroom 1"
+> "Launch a playground from my web-stack playspec on marquee 1"
 
 The genie will use the appropriate MCP tools to carry out your request.
 
@@ -84,15 +87,15 @@ All standard [API authentication](/api/overview) rules apply. An API key without
 
 ## Available Tools
 
-### Playrooms (Docker Hosts)
+### Marquees (Docker Hosts)
 
 | Tool | Required Scope | Description |
 |------|-------|-------------|
-| `list_playrooms` | `playrooms:read` | List all playrooms |
-| `get_playroom` | `playrooms:read` | Get playroom details |
-| `create_playroom` | `playrooms:write` | Create a new playroom |
-| `delete_playroom` ⚠️ | `playrooms:delete` | Delete a playroom |
-| `test_playroom_connection` | `playrooms:read` | Test SSH/Docker connectivity |
+| `list_marquees` | `marquees:read` | List all marquees |
+| `get_marquee` | `marquees:read` | Get marquee details |
+| `create_marquee` | `marquees:write` | Create a new marquee |
+| `delete_marquee` ⚠️ | `marquees:delete` | Delete a marquee |
+| `test_marquee_connection` | `marquees:read` | Test SSH/Docker connectivity |
 
 ### Playspecs (Environment Blueprints)
 
@@ -115,17 +118,19 @@ All standard [API authentication](/api/overview) rules apply. An API key without
 | `get_playground_status` | `playgrounds:read` | Get deployment status |
 | `get_playground_logs` | `playgrounds:read` | Get service container logs |
 | `get_playground_debug` | `playgrounds:read` | Get diagnostic/debug info |
-| `recreate_playground` ⚠️ | `playgrounds:write` | Re-deploy from scratch |
+| `rollout_playground` | `playgrounds:write` | Incremental re-deploy |
+| `hard_restart_playground` ⚠️ | `playgrounds:write` | Full teardown + re-deploy |
 | `extend_playground` | `playgrounds:write` | Extend the TTL |
 
-### Playzones (GitHub Repos)
+### Props (GitHub Repos)
 
 | Tool | Required Scope | Description |
 |------|-------|-------------|
-| `list_playzones` | `playzones:read` | List connected repositories |
-| `get_playzone` | `playzones:read` | Get repository details |
-| `get_playzone_branches` | `playzones:read` | List branches |
-| `create_playzone` | `playzones:write` | Connect a GitHub repository |
+| `list_props` | `props:read` | List connected repositories |
+| `get_prop` | `props:read` | Get repository details |
+| `get_prop_branches` | `props:read` | List branches |
+| `create_prop` | `props:write` | Connect a GitHub repository |
+| `get_github_token` | `props:read` | Get scoped GitHub App token |
 
 ### Launch
 
@@ -152,22 +157,47 @@ All standard [API authentication](/api/overview) rules apply. An API key without
 | `upload_template_image` | `import_templates:write` | Upload a cover image for a template |
 | `fork_template` | `import_templates:write` | Fork a public template into your account |
 
+### Genie Mounted Files
+
+| Tool | Required Scope | Description |
+|------|-------|-------------|
+| `add_agent_mounted_file` | `agents:write` | Upload and mount a file to a genie |
+| `remove_agent_mounted_file` | `agents:write` | Remove a mounted file from a genie |
+
+### Secrets
+
+| Tool | Required Scope | Description |
+|------|-------|-------------|
+| `list_secrets` | `secrets:read` | List all secrets (keys only, not values) |
+| `get_secret` | `secrets:read` | Get a secret value by key |
+| `create_secret` | `secrets:write` | Create an encrypted secret |
+| `update_secret` | `secrets:write` | Update a secret |
+| `delete_secret` ⚠️ | `secrets:delete` | Delete a secret |
+
+### Mutations
+
+| Tool | Required Scope | Description |
+|------|-------|-------------|
+| `list_mutations` | `mutations:read` | List mutations for a prop |
+| `create_mutation` | `mutations:write` | Report a surviving mutation |
+| `update_mutation` | `mutations:write` | Update mutation status |
+
 ### Genie Data (Artefacts, Feedbacks, Mutters)
 
 | Tool | Required Scope | Description |
 |------|-------|-------------|
-| `list_artefacts` | `genies:read` | List artefacts with optional filters |
-| `get_artefact` | `genies:read` | Get artefact details |
-| `upload_artefact` | `genies:write` | Upload a file as an artefact |
-| `download_artefact` | `genies:read` | Download an artefact file |
-| `list_feedbacks` | `genies:read` | List feedbacks with optional filters |
-| `get_feedback` | `genies:read` | Get feedback details |
-| `create_feedback` | `genies:write` | Create a new feedback entry |
-| `update_feedback` | `genies:write` | Update feedback content |
-| `delete_feedback` | `genies:delete` | Delete a feedback entry |
-| `list_agent_mutters` | `genies:read` | List genie mutters with optional filters |
-| `get_agent_mutter` | `genies:read` | Get mutter details |
-| `create_agent_mutter` | `genies:write` | Create a new mutter |
+| `list_artefacts` | `agents:read` | List artefacts with optional filters |
+| `get_artefact` | `agents:read` | Get artefact details |
+| `upload_artefact` | `agents:write` | Upload a file as an artefact |
+| `download_artefact` | `agents:read` | Download an artefact file |
+| `list_feedbacks` | `agents:read` | List feedbacks with optional filters |
+| `get_feedback` | `agents:read` | Get feedback details |
+| `create_feedback` | `agents:write` | Create a new feedback entry |
+| `update_feedback` | `agents:write` | Update feedback content |
+| `delete_feedback` | `agents:delete` | Delete a feedback entry |
+| `list_agent_mutters` | `agents:read` | List genie mutters with optional filters |
+| `get_agent_mutter` | `agents:read` | Get mutter details |
+| `create_agent_mutter` | `agents:write` | Create a new mutter |
 
 **Advanced Filtering:** The `list_artefacts`, `list_feedbacks`, and `list_agent_mutters` tools all support:
 

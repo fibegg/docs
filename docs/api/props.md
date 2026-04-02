@@ -1,34 +1,34 @@
 ---
 sidebar_position: 3
-title: Playzones
-description: API reference for managing Playzones — connected GitHub repositories.
+title: Props
+description: API reference for managing Props — connected GitHub repositories.
 ---
 
-# Playzones API
+# Props API
 
-Manage [Playzones](/core-concepts/playzone) — connected GitHub repositories that provide source code for your environments.
+Manage [Props](/core-concepts/prop) — connected GitHub repositories that provide source code for your environments.
 
 ## Endpoints
 
 | Method | Path | Scope | Description |
 |--------|------|-------|-------------|
-| `GET` | `/api/playzones` | `playzones:read` | List all Playzones |
-| `GET` | `/api/playzones/with_docker_compose` | `playzones:read` | List Playzones that have a detected Compose file |
-| `GET` | `/api/playzones/:id` | `playzones:read` | Get a single Playzone |
-| `POST` | `/api/playzones` | `playzones:write` | Create a new Playzone |
-| `POST` | `/api/playzones/attach` | `playzones:write` | Attach a repository via GitHub App |
-| `PATCH` | `/api/playzones/:id` | `playzones:write` | Update a Playzone |
-| `DELETE` | `/api/playzones/:id` | `playzones:delete` | Delete a Playzone |
-| `POST` | `/api/playzones/:id/sync` | `playzones:write` | Trigger a sync (refresh branches and Compose file) |
-| `GET` | `/api/playzones/:id/branches` | `playzones:read` | List branches |
-| `GET` | `/api/playzones/:id/env_defaults` | `playzones:read` | Get default env variables from `.env.example` |
+| `GET` | `/api/props` | `props:read` | List all Props |
+| `GET` | `/api/props/with_docker_compose` | `props:read` | List Props that have a detected Compose file |
+| `GET` | `/api/props/:id` | `props:read` | Get a single Prop |
+| `POST` | `/api/props` | `props:write` | Create a new Prop |
+| `POST` | `/api/props/attach` | `props:write` | Attach a repository via GitHub App |
+| `PATCH` | `/api/props/:id` | `props:write` | Update a Prop |
+| `DELETE` | `/api/props/:id` | `props:delete` | Delete a Prop |
+| `POST` | `/api/props/:id/sync` | `props:write` | Trigger a sync (refresh branches and Compose file) |
+| `GET` | `/api/props/:id/branches` | `props:read` | List branches |
+| `GET` | `/api/props/:id/env_defaults` | `props:read` | Get default env variables from `.env.example` |
 
 ---
 
-### List Playzones
+### List Props
 
 ```bash
-GET /api/playzones
+GET /api/props
 ```
 
 **Response:**
@@ -54,10 +54,10 @@ GET /api/playzones
 ### Attach via GitHub App
 
 ```bash
-POST /api/playzones/attach
+POST /api/props/attach
 ```
 
-Attach a repository discovered through the GitHub App integration. If the Playzone already exists, it is shared with the requesting player.
+Attach a repository discovered through the GitHub App integration. If the Prop already exists, it is shared with the requesting player.
 
 **Request body:**
 
@@ -69,17 +69,17 @@ Attach a repository discovered through the GitHub App integration. If the Playzo
 
 ---
 
-### Create Playzone
+### Create Prop
 
 ```bash
-POST /api/playzones
+POST /api/props
 ```
 
 **Request body:**
 
 ```json
 {
-  "playzone": {
+  "prop": {
     "name": "my-app",
     "github_url": "https://github.com/org/my-app",
     "default_branch": "main",
@@ -98,7 +98,7 @@ Private repositories require either a Personal Access Token in the `credentials`
 ### List Branches
 
 ```bash
-GET /api/playzones/:id/branches?query=feat&limit=20
+GET /api/props/:id/branches?query=feat&limit=20
 ```
 
 **Parameters:**
@@ -125,7 +125,7 @@ GET /api/playzones/:id/branches?query=feat&limit=20
 ### Get Env Defaults
 
 ```bash
-GET /api/playzones/:id/env_defaults?branch=main&env_file_path=.env.example
+GET /api/props/:id/env_defaults?branch=main&env_file_path=.env.example
 ```
 
 Returns the parsed key-value pairs from the `.env.example` file on the specified branch.
@@ -152,10 +152,10 @@ Returns the parsed key-value pairs from the `.env.example` file on the specified
 
 ---
 
-### Sync Playzone
+### Sync Prop
 
 ```bash
-POST /api/playzones/:id/sync
+POST /api/props/:id/sync
 ```
 
 Triggers an asynchronous sync — refreshes the branch index and Docker Compose file from GitHub.

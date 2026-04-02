@@ -16,7 +16,7 @@ Teams is currently available to players who have been granted access. If you do 
 
 ## Why Use Teams?
 
-- **Share infrastructure** — Give teammates access to your [Playrooms](/core-concepts/playroom), [Playspecs](/core-concepts/playspec), [Playzones](/core-concepts/playzone), [Playgrounds](/core-concepts/playground), Genies, and Templates without sharing credentials.
+- **Share infrastructure** — Give teammates access to your [Marquees](/core-concepts/marquee), [Playspecs](/core-concepts/playspec), [Props](/core-concepts/prop), [Playgrounds](/core-concepts/playground), Genies, and Templates without sharing credentials.
 - **Control permissions** — Decide whether shared resources are view-only or fully manageable.
 - **Collaborate in real time** — Team members see shared resources alongside their own and can work on them directly.
 
@@ -77,9 +77,9 @@ When you receive a team invitation:
 
 Team members can contribute their own resources to the team for others to access. Shareable resource types include:
 
-- [Playrooms](/core-concepts/playroom)
+- [Marquees](/core-concepts/marquee)
 - [Playspecs](/core-concepts/playspec)
-- [Playzones](/core-concepts/playzone)
+- [Props](/core-concepts/prop)
 - [Playgrounds](/core-concepts/playground)
 - Genies
 - Templates
@@ -111,7 +111,7 @@ Only resources you own can be contributed. The contributor (or an Owner/Admin) c
 
 ## Team API Keys
 
-When you create [API Keys](/core-concepts/security#api-keys), those keys can access team-shared resources according to their permission levels. This means your CI/CD pipelines and automation tools can work with shared Playrooms, Playspecs, and other resources contributed to your teams.
+When you create [API Keys](/core-concepts/security#api-keys), those keys can access team-shared resources according to their permission levels. This means your CI/CD pipelines and automation tools can work with shared Marquees, Playspecs, and other resources contributed to your teams.
 
 ---
 
@@ -150,5 +150,5 @@ Only the Owner can delete a team, and only when they are the **sole remaining me
 2. Click **Delete Team** on the team page.
 
 :::warning
-Deleting a team removes all resource sharing associations. The underlying resources themselves (Playrooms, Playgrounds, etc.) are not deleted — they remain with their original owners.
+Deleting a team removes all resource sharing associations. The underlying resources themselves (Marquees, Playgrounds, etc.) are not deleted — they remain with their original owners.
 :::

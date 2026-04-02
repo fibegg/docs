@@ -134,7 +134,7 @@ POST /api/playgrounds
   "playground": {
     "name": "feature-auth",
     "playspec_id": 1,
-    "playroom_id": 1,
+    "marquee_id": 1,
     "job_mode": false,
     "env_overrides": {
       "DATABASE_URL": "postgres://db/myapp"

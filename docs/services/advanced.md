@@ -32,7 +32,7 @@ When a service is in Production mode, the platform builds the Docker image **at 
 
 The build process at creation time:
 
-1. Clones the configured branch onto the Playroom host
+1. Clones the configured branch onto the Marquee host
 2. Builds the Docker image using the service's Dockerfile
 3. Stores a `BuildRecord` with the resulting image reference
 4. Uses that image for all containers in the Playground
@@ -66,9 +66,9 @@ If your Dockerfile is in a subdirectory (e.g., `docker/Dockerfile.dev`), update 
 
 ### Selecting a Branch
 
-When creating a Playground, each dynamic service can use a different branch from its [Playzone](/core-concepts/playzone):
+When creating a Playground, each dynamic service can use a different branch from its [Prop](/core-concepts/prop):
 
-- **Default** — Uses the Playzone's default branch (typically `main`)
+- **Default** — Uses the Prop's default branch (typically `main`)
 - **Custom** — Select any existing branch from the repository
 
 ### Creating a New Branch

@@ -25,7 +25,7 @@ Templates are organized by **category** (e.g., Web Frameworks, Databases, Full-S
 1. Browse or search for a template
 2. Click on a template to view its details
 3. Fill in any required variables (e.g., project name, database password)
-4. Select a [Playroom](/core-concepts/playroom) for deployment
+4. Select a [Marquee](/core-concepts/marquee) for deployment
 5. Click **Launch**
 
 The platform creates a [Playspec](/core-concepts/playspec) from the template and (if you choose) immediately provisions a [Playground](/core-concepts/playground).

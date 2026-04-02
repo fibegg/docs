@@ -6,38 +6,38 @@ description: Manage your subscription plan, resource quotas, and referral reward
 
 # Billing & Subscriptions
 
-fibe.gg uses a subscription-based model to manage access to [Playrooms](/core-concepts/playroom) and infrastructure resources. You can subscribe, upgrade, and manage your plan directly from your [Profile](/core-concepts/profile).
+fibe.gg uses a subscription-based model to manage access to [Marquees](/core-concepts/marquee) and infrastructure resources. You can subscribe, upgrade, and manage your plan directly from your [Profile](/core-concepts/profile).
 
 ---
 
 ## Subscription Plans
 
-Three plans are available, each granting a Playroom allowance:
+Three plans are available, each granting a Marquee allowance:
 
-| Plan | Playroom Allowance | Best For |
+| Plan | Marquee Allowance | Best For |
 |------|-------------------|----------|
-| **Tutorial** | 1 Playroom | Getting started, learning the platform, running tutorials |
-| **Single** | 1 Playroom | Individual developers with a dedicated project environment |
-| **Multiplayer** | 10 Playrooms | Teams and power users managing multiple projects or clients |
+| **Tutorial** | 1 Marquee | Getting started, learning the platform, running tutorials |
+| **Single** | 1 Marquee | Individual developers with a dedicated project environment |
+| **Multiplayer** | 10 Marquees | Teams and power users managing multiple projects or clients |
 
 :::info
-The Tutorial plan provides a managed Playroom specifically designed for onboarding and interactive tutorials. Single and Multiplayer plans are for your own infrastructure.
+The Tutorial plan provides a managed Marquee specifically designed for onboarding and interactive tutorials. Single and Multiplayer plans are for your own infrastructure.
 :::
 
 ---
 
 ## Stacking Subscriptions
 
-Subscriptions **stack** — each active subscription adds its Playroom allowance to your total. For example:
+Subscriptions **stack** — each active subscription adds its Marquee allowance to your total. For example:
 
-- 2 Single subscriptions = 2 Playrooms
-- 1 Single + 1 Multiplayer = 11 Playrooms
-- 3 Multiplayer subscriptions = 30 Playrooms
+- 2 Single subscriptions = 2 Marquees
+- 1 Single + 1 Multiplayer = 11 Marquees
+- 3 Multiplayer subscriptions = 30 Marquees
 
 This gives you flexibility to scale your infrastructure incrementally without jumping to a higher plan.
 
 :::tip
-If you need more Playrooms but the Multiplayer plan is more than you need, simply add another Single subscription. Your total allowance always equals the sum of all active plans.
+If you need more Marquees but the Multiplayer plan is more than you need, simply add another Single subscription. Your total allowance always equals the sum of all active plans.
 :::
 
 ---
@@ -62,7 +62,7 @@ You choose the billing interval at checkout. Each subscription is independent, s
 3. Choose **Monthly** or **Annual** billing.
 4. You will be redirected to a secure checkout page powered by Stripe.
 5. Complete your payment details.
-6. Once payment is confirmed, your new Playroom allowance is activated immediately.
+6. Once payment is confirmed, your new Marquee allowance is activated immediately.
 
 :::tip Promotion Codes
 If you have a promotion or referral code, you can enter it during checkout to receive a discount.
@@ -82,15 +82,15 @@ Your current subscriptions and their status are visible in the **Billing** secti
 
 ### Adding More Capacity
 
-To add more Playrooms, simply subscribe to an additional plan. There is no need to cancel your existing subscription first — new plans stack on top.
+To add more Marquees, simply subscribe to an additional plan. There is no need to cancel your existing subscription first — new plans stack on top.
 
 ### Canceling a Subscription
 
 You can cancel a subscription at any time. When canceled:
 
 - Your plan remains active until the end of the current billing period.
-- After the period ends, the corresponding Playroom allowance is removed.
-- Existing Playrooms that exceed your new allowance will not be deleted, but you will not be able to create new ones until you are within your quota again.
+- After the period ends, the corresponding Marquee allowance is removed.
+- Existing Marquees that exceed your new allowance will not be deleted, but you will not be able to create new ones until you are within your quota again.
 
 ---
 
@@ -98,9 +98,9 @@ You can cancel a subscription at any time. When canceled:
 
 Your account has quotas that govern how many resources you can create. Quotas apply to:
 
-- **Playrooms** — Determined by your active subscriptions (as described above).
+- **Marquees** — Determined by your active subscriptions (as described above).
 - **Playgrounds** — The number of Playgrounds you can run simultaneously.
-- **Playspecs, Playzones, Genies, Templates** — Each has a generous default limit.
+- **Playspecs, Props, Genies, Templates** — Each has a generous default limit.
 - **API Keys and Webhooks** — Capped to prevent abuse.
 
 ### What Happens When You Hit a Quota?
@@ -142,7 +142,7 @@ You cannot use your own referral code on your own subscriptions.
 
 fibe.gg operates an invitation-based beta program. Some features and the ability to create a full account require beta access.
 
-- **Beta players** have full access to the platform, including subscribing to plans and creating Playrooms.
+- **Beta players** have full access to the platform, including subscribing to plans and creating Marquees.
 - If you do not yet have beta access, you can request an invitation or ask an existing player to refer you.
 - Beta status is tied to your GitHub account and is granted by the fibe.gg team.
 
@@ -155,13 +155,13 @@ Yes. Cancel your current monthly subscription and subscribe again with the Annua
 :::
 
 :::tip What happens to my Playgrounds if I cancel all subscriptions?
-Your Playgrounds and their data are not deleted when a subscription lapses. However, you will not be able to create new Playrooms or Playgrounds until you subscribe again.
+Your Playgrounds and their data are not deleted when a subscription lapses. However, you will not be able to create new Marquees or Playgrounds until you subscribe again.
 :::
 
 :::tip Can I have both a Tutorial and a Single subscription?
-Yes. Tutorial and standard subscriptions (Single and Multiplayer) are tracked independently. Having a Tutorial subscription does not count against your standard Playroom allowance, and vice versa.
+Yes. Tutorial and standard subscriptions (Single and Multiplayer) are tracked independently. Having a Tutorial subscription does not count against your standard Marquee allowance, and vice versa.
 :::
 
-:::tip How do I get more than 10 Playrooms?
-Subscribe to multiple plans. For example, two Multiplayer subscriptions give you 20 Playrooms. There is no hard upper limit as long as you have active subscriptions.
+:::tip How do I get more than 10 Marquees?
+Subscribe to multiple plans. For example, two Multiplayer subscriptions give you 20 Marquees. There is no hard upper limit as long as you have active subscriptions.
 :::

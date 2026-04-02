@@ -37,7 +37,7 @@ Mutation testing introduces deliberate bugs (mutations) into your code to verify
 Automated Jobs are configured directly within a Playspec. You specify:
 - Whether the feature is enabled.
 - Which **Stored Genie** should handle the job.
-- The repository **Playzone** and the target **Branch**.
+- The repository **Prop** and the target **Branch**.
 - A custom **Prompt Template** to guide the genie with relevant context such as build logs or mutation diffs.
 - The maximum number of retry attempts.
 

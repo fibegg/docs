@@ -157,7 +157,7 @@ Compiles the template and launches a new Playground natively on the backend. Thi
 
 ```json
 {
-  "playroom_id": 1,
+  "marquee_id": 1,
   "version": 2, // optional, defaults to latest
   "variables": {
     "app_name": "my-cool-app",
@@ -171,4 +171,4 @@ The backend `TemplateCompilerService` will automatically:
 1. Substitute any provided `variables` into `$$var__` placeholders.
 2. Generate secure 16-character hex strings for any `$$random__` placeholders.
 3. Validate variables against regex patterns defined in `fibe.gg > variables`.
-4. Deploy the compiled docker compose string to the target playroom.
+4. Deploy the compiled docker compose string to the target marquee.

@@ -25,7 +25,7 @@ POST /api/playgrounds
 {
   "playground": {
     "playspec_id": 42,
-    "playroom_id": 1,
+    "marquee_id": 1,
     "job_mode": true,
     "watched_services": ["tests"]
   }

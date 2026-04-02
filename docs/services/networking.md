@@ -10,13 +10,13 @@ Every service in a Playground can be configured for network access. The platform
 
 ## Subdomain Routing
 
-Each exposed service gets its own HTTPS subdomain under the Playroom's root domain:
+Each exposed service gets its own HTTPS subdomain under the Marquee's root domain:
 
 ```
 https://{subdomain}.{root_domain}
 ```
 
-For example, if your Playroom's root domain is `dev.example.com`:
+For example, if your Marquee's root domain is `dev.example.com`:
 
 | Service | Subdomain | URL |
 |---------|-----------|-----|
@@ -35,10 +35,10 @@ Use the special subdomain `@` to route the **root domain** itself to a service:
 ### Subdomain Defaults and Overrides
 
 - **Default subdomain** is defined on the [Playspec](/core-concepts/playspec) (typically the service name)
-- **Subdomain overrides** can be set per [Playground](/core-concepts/playground), which is essential when multiple Playgrounds share the same Playroom
+- **Subdomain overrides** can be set per [Playground](/core-concepts/playground), which is essential when multiple Playgrounds share the same Marquee
 
 :::warning Subdomain Conflicts
-Two Playgrounds on the same Playroom cannot use the same subdomain. Always override subdomains when running multiple Playgrounds from the same Playspec on a single Playroom.
+Two Playgrounds on the same Marquee cannot use the same subdomain. Always override subdomains when running multiple Playgrounds from the same Playspec on a single Marquee.
 :::
 
 ## Visibility: Internal vs External
@@ -58,7 +58,7 @@ Internal services are protected with HTTP Basic Auth:
 | **Username** | `playground` |
 | **Password** | Auto-generated per Playground (visible in the Playground detail view) |
 
-The authentication is enforced by Traefik's `playroom-auth` middleware. You only need the credentials when accessing an internal service URL in a browser — service-to-service communication within the Docker network is unaffected.
+The authentication is enforced by Traefik's `marquee-auth` middleware. You only need the credentials when accessing an internal service URL in a browser — service-to-service communication within the Docker network is unaffected.
 
 ## Internal Communication (Docker Networking)
 
@@ -82,7 +82,7 @@ In this example, the `web` service connects to `db` and `redis` by their service
 
 ### Network Isolation
 
-Each Playground has its own internal Docker network. Services from different Playgrounds **cannot** communicate with each other, even if they run on the same Playroom. All Playgrounds share the Playroom's Traefik network for ingress routing only.
+Each Playground has its own internal Docker network. Services from different Playgrounds **cannot** communicate with each other, even if they run on the same Marquee. All Playgrounds share the Marquee's Traefik network for ingress routing only.
 
 ## Port Mapping
 

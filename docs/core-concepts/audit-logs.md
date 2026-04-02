@@ -21,7 +21,7 @@ Significant events are automatically recorded as an audit log entry. These logs 
 Audit logs are accessible in multiple places depending on the resource context:
 
 1. **Playground detail page** — Click the **"Updated"** badge in the Playground header to see a timeline of recent events for that specific Playground.
-2. **Resource views** — Check the context menu or history tab for specific genies, templates, or playrooms.
+2. **Resource views** — Check the context menu or history tab for specific genies, templates, or marquees.
 3. **Audit Logs page** — Navigate to **Audit Logs** in the sidebar to see a paginated list of all events across the platform.
 
 ### Playground Audit Logs

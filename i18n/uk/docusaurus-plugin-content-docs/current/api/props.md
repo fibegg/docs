@@ -1,34 +1,34 @@
 ---
 sidebar_position: 3
-title: Playzones
-description: API-довідник для керування Playzone — підключеними GitHub-репозиторіями.
+title: Props
+description: API-довідник для керування Prop — підключеними GitHub-репозиторіями.
 ---
 
-# Playzones API
+# Props API
 
-Керування [Playzone](/core-concepts/playzone) — підключеними GitHub-репозиторіями, що надають вихідний код для ваших середовищ.
+Керування [Prop](/core-concepts/prop) — підключеними GitHub-репозиторіями, що надають вихідний код для ваших середовищ.
 
 ## Ендпоінти
 
 | Метод | Шлях | Скоуп | Опис |
 |-------|------|-------|------|
-| `GET` | `/api/playzones` | `playzones:read` | Список всіх Playzone |
-| `GET` | `/api/playzones/with_docker_compose` | `playzones:read` | Playzone з виявленим Compose-файлом |
-| `GET` | `/api/playzones/:id` | `playzones:read` | Отримати один Playzone |
-| `POST` | `/api/playzones` | `playzones:write` | Створити новий Playzone |
-| `POST` | `/api/playzones/attach` | `playzones:write` | Підключити репозиторій через GitHub App |
-| `PATCH` | `/api/playzones/:id` | `playzones:write` | Оновити Playzone |
-| `DELETE` | `/api/playzones/:id` | `playzones:delete` | Видалити Playzone |
-| `POST` | `/api/playzones/:id/sync` | `playzones:write` | Запустити синхронізацію (оновити гілки та Compose-файл) |
-| `GET` | `/api/playzones/:id/branches` | `playzones:read` | Список гілок |
-| `GET` | `/api/playzones/:id/env_defaults` | `playzones:read` | Отримати змінні за замовчуванням з `.env.example` |
+| `GET` | `/api/props` | `props:read` | Список всіх Prop |
+| `GET` | `/api/props/with_docker_compose` | `props:read` | Prop з виявленим Compose-файлом |
+| `GET` | `/api/props/:id` | `props:read` | Отримати один Prop |
+| `POST` | `/api/props` | `props:write` | Створити новий Prop |
+| `POST` | `/api/props/attach` | `props:write` | Підключити репозиторій через GitHub App |
+| `PATCH` | `/api/props/:id` | `props:write` | Оновити Prop |
+| `DELETE` | `/api/props/:id` | `props:delete` | Видалити Prop |
+| `POST` | `/api/props/:id/sync` | `props:write` | Запустити синхронізацію (оновити гілки та Compose-файл) |
+| `GET` | `/api/props/:id/branches` | `props:read` | Список гілок |
+| `GET` | `/api/props/:id/env_defaults` | `props:read` | Отримати змінні за замовчуванням з `.env.example` |
 
 ---
 
-### Список Playzone
+### Список Prop
 
 ```bash
-GET /api/playzones
+GET /api/props
 ```
 
 **Відповідь:**
@@ -54,10 +54,10 @@ GET /api/playzones
 ### Підключити через GitHub App
 
 ```bash
-POST /api/playzones/attach
+POST /api/props/attach
 ```
 
-Підключає репозиторій, виявлений через інтеграцію GitHub App. Якщо Playzone вже існує, він ділиться з гравцем, що запитує.
+Підключає репозиторій, виявлений через інтеграцію GitHub App. Якщо Prop вже існує, він ділиться з гравцем, що запитує.
 
 **Тіло запиту:**
 
@@ -69,17 +69,17 @@ POST /api/playzones/attach
 
 ---
 
-### Створити Playzone
+### Створити Prop
 
 ```bash
-POST /api/playzones
+POST /api/props
 ```
 
 **Тіло запиту:**
 
 ```json
 {
-  "playzone": {
+  "prop": {
     "name": "my-app",
     "github_url": "https://github.com/org/my-app",
     "default_branch": "main",
@@ -98,7 +98,7 @@ POST /api/playzones
 ### Список гілок
 
 ```bash
-GET /api/playzones/:id/branches?query=feat&limit=20
+GET /api/props/:id/branches?query=feat&limit=20
 ```
 
 **Параметри:**
@@ -125,7 +125,7 @@ GET /api/playzones/:id/branches?query=feat&limit=20
 ### Отримати змінні за замовчуванням {#get-env-defaults}
 
 ```bash
-GET /api/playzones/:id/env_defaults?branch=main&env_file_path=.env.example
+GET /api/props/:id/env_defaults?branch=main&env_file_path=.env.example
 ```
 
 Повертає розпарсені пари ключ-значення з файлу `.env.example` на вказаній гілці.
@@ -152,10 +152,10 @@ GET /api/playzones/:id/env_defaults?branch=main&env_file_path=.env.example
 
 ---
 
-### Синхронізувати Playzone
+### Синхронізувати Prop
 
 ```bash
-POST /api/playzones/:id/sync
+POST /api/props/:id/sync
 ```
 
 Запускає асинхронну синхронізацію — оновлює індекс гілок та Docker Compose файл з GitHub.

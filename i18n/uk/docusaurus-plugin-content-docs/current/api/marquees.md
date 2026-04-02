@@ -1,31 +1,31 @@
 ---
 sidebar_position: 2
-title: Playrooms
-description: API-довідник для керування Playroom — віддаленими Docker-хостами.
+title: Marquees
+description: API-довідник для керування Marquee — віддаленими Docker-хостами.
 ---
 
-# Playrooms API
+# Marquees API
 
-Керування [Playroom](/core-concepts/playroom) — віддаленими Docker-хостами, на яких працюють ваші Playground.
+Керування [Marquee](/core-concepts/marquee) — віддаленими Docker-хостами, на яких працюють ваші Playground.
 
 ## Ендпоінти
 
 | Метод | Шлях | Скоуп | Опис |
 |-------|------|-------|------|
-| `GET` | `/api/playrooms` | `playrooms:read` | Список всіх Playroom |
-| `GET` | `/api/playrooms/:id` | `playrooms:read` | Отримати один Playroom |
-| `POST` | `/api/playrooms` | `playrooms:write` | Створити новий Playroom |
-| `PATCH` | `/api/playrooms/:id` | `playrooms:write` | Оновити Playroom |
-| `DELETE` | `/api/playrooms/:id` | `playrooms:delete` | Видалити Playroom |
-| `POST` | `/api/playrooms/:id/generate_ssh_key` | `playrooms:manage` | Згенерувати SSH-ключ |
-| `POST` | `/api/playrooms/:id/test_connection` | `playrooms:read` | Перевірити SSH та Docker зʼєднання |
+| `GET` | `/api/marquees` | `marquees:read` | Список всіх Marquee |
+| `GET` | `/api/marquees/:id` | `marquees:read` | Отримати один Marquee |
+| `POST` | `/api/marquees` | `marquees:write` | Створити новий Marquee |
+| `PATCH` | `/api/marquees/:id` | `marquees:write` | Оновити Marquee |
+| `DELETE` | `/api/marquees/:id` | `marquees:delete` | Видалити Marquee |
+| `POST` | `/api/marquees/:id/generate_ssh_key` | `marquees:manage` | Згенерувати SSH-ключ |
+| `POST` | `/api/marquees/:id/test_connection` | `marquees:read` | Перевірити SSH та Docker зʼєднання |
 
 ---
 
-### Список Playroom
+### Список Marquee
 
 ```bash
-GET /api/playrooms
+GET /api/marquees
 ```
 
 **Відповідь:**
@@ -48,10 +48,10 @@ GET /api/playrooms
 
 ---
 
-### Отримати Playroom
+### Отримати Marquee
 
 ```bash
-GET /api/playrooms/:id
+GET /api/marquees/:id
 ```
 
 Повертає детальний вигляд, включаючи SSH-публічний ключ, домени та ACME email.
@@ -77,17 +77,17 @@ GET /api/playrooms/:id
 
 ---
 
-### Створити Playroom
+### Створити Marquee
 
 ```bash
-POST /api/playrooms
+POST /api/marquees
 ```
 
 **Тіло запиту:**
 
 ```json
 {
-  "playroom": {
+  "marquee": {
     "name": "My Server",
     "host": "192.168.1.100",
     "port": 22,
@@ -102,37 +102,37 @@ POST /api/playrooms
 
 ---
 
-### Оновити Playroom
+### Оновити Marquee
 
 ```bash
-PATCH /api/playrooms/:id
+PATCH /api/marquees/:id
 ```
 
-Тіло аналогічне Create. Tutorial Playroom мають обмежені поля (тільки `name`, `domains_input` та `status`).
+Тіло аналогічне Create. Tutorial Marquee мають обмежені поля (тільки `name`, `domains_input` та `status`).
 
 ---
 
-### Видалити Playroom
+### Видалити Marquee
 
 ```bash
-DELETE /api/playrooms/:id
+DELETE /api/marquees/:id
 ```
 
-Повертає `204 No Content` при успіху. Помилка `409 Conflict`, якщо Playroom має активні Playground або є tutorial Playroom.
+Повертає `204 No Content` при успіху. Помилка `409 Conflict`, якщо Marquee має активні Playground або є tutorial Marquee.
 
 ---
 
 ### Згенерувати SSH-ключ
 
 ```bash
-POST /api/playrooms/:id/generate_ssh_key
+POST /api/marquees/:id/generate_ssh_key
 ```
 
 Генерує нову пару ключів ed25519. Повертає публічний ключ:
 
 ```json
 {
-  "public_key": "ssh-ed25519 AAAA... playroom-1@fibe.gg"
+  "public_key": "ssh-ed25519 AAAA... marquee-1@fibe.gg"
 }
 ```
 
@@ -141,7 +141,7 @@ POST /api/playrooms/:id/generate_ssh_key
 ### Тест зʼєднання
 
 ```bash
-POST /api/playrooms/:id/test_connection
+POST /api/marquees/:id/test_connection
 ```
 
 Перевіряє SSH-зʼєднання, доступність Docker та доступ до директорій:

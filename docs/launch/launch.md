@@ -37,7 +37,7 @@ curl -X POST https://fibe.gg/api/launch \
   -d '{
     "name": "my-environment",
     "compose_yaml": "services:\n  web:\n    image: nginx\n    ports:\n      - \"80:80\"",
-    "playroom_id": 1,
+    "marquee_id": 1,
     "create_playground": true
   }'
 ```

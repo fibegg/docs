@@ -19,7 +19,7 @@ A **static service** runs a pre-built Docker image without any source code mount
 | Source code mounting | ❌ No |
 | Auto-sync (git pull) | ❌ No |
 | Production mode toggle | ❌ No |
-| Requires a Playzone | ❌ No |
+| Requires a Prop | ❌ No |
 
 **Use for:** Databases, caches, message brokers, and other infrastructure components that run unchanged Docker images.
 
@@ -27,7 +27,7 @@ A **static service** runs a pre-built Docker image without any source code mount
 
 ### Dynamic Services
 
-A **dynamic service** is backed by source code from a [Playzone](/core-concepts/playzone). It supports two runtime modes:
+A **dynamic service** is backed by source code from a [Prop](/core-concepts/prop). It supports two runtime modes:
 
 #### Dev Mode (Default)
 
@@ -54,7 +54,7 @@ When you provide a Docker Compose YAML to create a Playspec, the platform:
 1. **Parses** the YAML and extracts all service definitions
 2. **Presents** each service for classification
 3. **Requires** you to mark each service as either `static` or `dynamic`
-4. **Validates** dynamic services have a linked Playzone, Dockerfile path, and working directory
+4. **Validates** dynamic services have a linked Prop, Dockerfile path, and working directory
 5. **Validates** static services have an image specified
 
 ## Container Mapping

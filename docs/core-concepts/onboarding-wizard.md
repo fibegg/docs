@@ -15,7 +15,7 @@ The wizard consists of four main steps:
 ### 1. Welcome & Introduction
 A brief overview of the platform's capabilities and what you'll need to get started (GitHub access and a remote server).
 
-### 2. Connect Your Playroom
+### 2. Connect Your Marquee
 Configure your first remote Docker host. You'll need to provide:
 - **Host address** (IP or domain)
 - **SSH User**
@@ -24,7 +24,7 @@ Configure your first remote Docker host. You'll need to provide:
 
 The wizard will automatically generate an SSH key for you and provide instructions on how to add it to your server's `authorized_keys`.
 
-### 3. Link Your Playzone
+### 3. Link Your Prop
 Connect a GitHub repository to use as a source for your environments. You can choose from:
 - **Public Repositories**: Connect any public repo via URL.
 - **Private Repositories**: Link your GitHub account to access private repos.

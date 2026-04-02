@@ -28,7 +28,7 @@ POST /api/launch
 {
   "name": "my-environment",
   "compose_yaml": "services:\n  web:\n    image: nginx:latest\n    ports:\n      - \"80:80\"\n  db:\n    image: postgres:16\n    environment:\n      POSTGRES_PASSWORD: secret",
-  "playroom_id": 1,
+  "marquee_id": 1,
   "create_playground": true,
   "persist_volumes": false,
   "persist_volumes": false,
@@ -42,7 +42,7 @@ POST /api/launch
 |-----------|------|----------|-------------|
 | `name` | string | Yes | Name for the created Playspec (and Playground) |
 | `compose_yaml` | string | Yes | Docker Compose YAML definition |
-| `playroom_id` | integer | No | Playroom to deploy on (required if `create_playground` is true) |
+| `marquee_id` | integer | No | Marquee to deploy on (required if `create_playground` is true) |
 | `create_playground` | boolean | No | Whether to immediately create and start a Playground (default: false) |
 | `persist_volumes` | boolean | No | Enable persistent volumes on the Playspec (default: false) |
 | `genie` | string | No | AI genie provider to attach (e.g., `custom-assistant`) |
@@ -53,7 +53,7 @@ POST /api/launch
 {
   "playspecs_created": 42,
   "playground_id": 15,
-  "playzones_created": [1, 2]
+  "props_created": [1, 2]
 }
 ```
 
@@ -61,16 +61,16 @@ POST /api/launch
 |-------|-------------|
 | `playspecs_created` | ID of the newly created Playspec |
 | `playground_id` | ID of the Playground (only present if `create_playground` was true) |
-| `playzones_created` | IDs of any Playzones that were auto-created from the Compose definition |
+| `props_created` | IDs of any Props that were auto-created from the Compose definition |
 
 ## How It Works
 
 The Launch endpoint orchestrates several operations in one call:
 
 1. **Parses** the Docker Compose YAML
-2. **Auto-creates Playzones** for any `build` services that reference local Dockerfiles (if the repository can be inferred)
+2. **Auto-creates Props** for any `build` services that reference local Dockerfiles (if the repository can be inferred)
 3. **Creates a Playspec** with the provided Compose YAML and auto-classified services
-4. **Optionally creates a Playground** on the specified Playroom
+4. **Optionally creates a Playground** on the specified Marquee
 
 This makes it ideal for:
 
@@ -87,7 +87,7 @@ curl -X POST https://fibe.gg/api/launch \
   -d "{
     \"name\": \"pr-$PR_NUMBER\",
     \"compose_yaml\": \"$(cat docker-compose.yml)\",
-    \"playroom_id\": $PLAYROOM_ID,
+    \"marquee_id\": $MARQUEE_ID,
     \"create_playground\": true
   }"
 ```

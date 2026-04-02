@@ -72,7 +72,7 @@ GET /api/playspecs/:id
     {
       "name": "web",
       "type": "dynamic",
-      "playzone_id": 1,
+      "prop_id": 1,
       "dockerfile_path": "Dockerfile",
       "env_file_path": ".env.example",
       "workdir": "/app",
@@ -120,7 +120,7 @@ POST /api/playspecs
       {
         "name": "web",
         "type": "dynamic",
-        "playzone_id": 1,
+        "prop_id": 1,
         "dockerfile_path": "Dockerfile",
         "env_file_path": ".env.example",
         "workdir": "/app",

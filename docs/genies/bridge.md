@@ -6,7 +6,7 @@ description: The central hub for all your AI genies and chat sessions.
 
 # Bridge
 
-The **Bridge** is the central management hub for all your AI genies. It provides a unified, full-screen interface where you can quickly switch between active genie chats, monitor their status, and manage their lifecycle across all your [Playrooms](/core-concepts/playroom).
+The **Bridge** is the central management hub for all your AI genies. It provides a unified, full-screen interface where you can quickly switch between active genie chats, monitor their status, and manage their lifecycle across all your [Marquees](/core-concepts/marquee).
 
 ## Key Features
 
@@ -31,9 +31,9 @@ Access advanced developer tools directly from the Bridge:
 
 ## Standalone Chat Lifecycle
 
-Through the Bridge, you can launch genies on any active Playroom without creating a full Playground.
+Through the Bridge, you can launch genies on any active Marquee without creating a full Playground.
 
-1. **Launch:** Pick an genie and a destination Playroom.
+1. **Launch:** Pick an genie and a destination Marquee.
 2. **Interact:** Chat with the genie via its own unique subdomain.
 3. **Extend:** Standalone chats have a default TTL (typically 2 hours). You can extend this or set it to **Never Expire**.
 4. **Purge:** Use the "Purge" action to completely wipe the genie's remote environment and start fresh.

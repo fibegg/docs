@@ -1,31 +1,31 @@
 ---
 sidebar_position: 2
-title: Playrooms
-description: API reference for managing Playrooms — remote Docker hosts.
+title: Marquees
+description: API reference for managing Marquees — remote Docker hosts.
 ---
 
-# Playrooms API
+# Marquees API
 
-Manage [Playrooms](/core-concepts/playroom) — the remote Docker hosts where your Playgrounds run.
+Manage [Marquees](/core-concepts/marquee) — the remote Docker hosts where your Playgrounds run.
 
 ## Endpoints
 
 | Method | Path | Scope | Description |
 |--------|------|-------|-------------|
-| `GET` | `/api/playrooms` | `playrooms:read` | List all Playrooms |
-| `GET` | `/api/playrooms/:id` | `playrooms:read` | Get a single Playroom |
-| `POST` | `/api/playrooms` | `playrooms:write` | Create a new Playroom |
-| `PATCH` | `/api/playrooms/:id` | `playrooms:write` | Update a Playroom |
-| `DELETE` | `/api/playrooms/:id` | `playrooms:delete` | Delete a Playroom |
-| `POST` | `/api/playrooms/:id/generate_ssh_key` | `playrooms:manage` | Generate an SSH key pair |
-| `POST` | `/api/playrooms/:id/test_connection` | `playrooms:read` | Test SSH and Docker connectivity |
+| `GET` | `/api/marquees` | `marquees:read` | List all Marquees |
+| `GET` | `/api/marquees/:id` | `marquees:read` | Get a single Marquee |
+| `POST` | `/api/marquees` | `marquees:write` | Create a new Marquee |
+| `PATCH` | `/api/marquees/:id` | `marquees:write` | Update a Marquee |
+| `DELETE` | `/api/marquees/:id` | `marquees:delete` | Delete a Marquee |
+| `POST` | `/api/marquees/:id/generate_ssh_key` | `marquees:manage` | Generate an SSH key pair |
+| `POST` | `/api/marquees/:id/test_connection` | `marquees:read` | Test SSH and Docker connectivity |
 
 ---
 
-### List Playrooms
+### List Marquees
 
 ```bash
-GET /api/playrooms
+GET /api/marquees
 ```
 
 **Response:**
@@ -48,10 +48,10 @@ GET /api/playrooms
 
 ---
 
-### Get Playroom
+### Get Marquee
 
 ```bash
-GET /api/playrooms/:id
+GET /api/marquees/:id
 ```
 
 Returns a detailed view including SSH public key, domains, and ACME email.
@@ -77,17 +77,17 @@ Returns a detailed view including SSH public key, domains, and ACME email.
 
 ---
 
-### Create Playroom
+### Create Marquee
 
 ```bash
-POST /api/playrooms
+POST /api/marquees
 ```
 
 **Request body:**
 
 ```json
 {
-  "playroom": {
+  "marquee": {
     "name": "My Server",
     "host": "192.168.1.100",
     "port": 22,
@@ -102,37 +102,37 @@ POST /api/playrooms
 
 ---
 
-### Update Playroom
+### Update Marquee
 
 ```bash
-PATCH /api/playrooms/:id
+PATCH /api/marquees/:id
 ```
 
-Same body as Create. Tutorial Playrooms have restricted fields (only `name`, `domains_input`, and `status`).
+Same body as Create. Tutorial Marquees have restricted fields (only `name`, `domains_input`, and `status`).
 
 ---
 
-### Delete Playroom
+### Delete Marquee
 
 ```bash
-DELETE /api/playrooms/:id
+DELETE /api/marquees/:id
 ```
 
-Returns `204 No Content` on success. Fails with `409 Conflict` if the Playroom has active Playgrounds or is a tutorial Playroom.
+Returns `204 No Content` on success. Fails with `409 Conflict` if the Marquee has active Playgrounds or is a tutorial Marquee.
 
 ---
 
 ### Generate SSH Key
 
 ```bash
-POST /api/playrooms/:id/generate_ssh_key
+POST /api/marquees/:id/generate_ssh_key
 ```
 
 Generates a new ed25519 key pair. Returns the public key:
 
 ```json
 {
-  "public_key": "ssh-ed25519 AAAA... playroom-1@fibe.gg"
+  "public_key": "ssh-ed25519 AAAA... marquee-1@fibe.gg"
 }
 ```
 
@@ -141,7 +141,7 @@ Generates a new ed25519 key pair. Returns the public key:
 ### Test Connection
 
 ```bash
-POST /api/playrooms/:id/test_connection
+POST /api/marquees/:id/test_connection
 ```
 
 Tests SSH connectivity, Docker availability, and directory access:

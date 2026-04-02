@@ -59,7 +59,7 @@ The final resolved variables for the `web` service would be:
 Default variables are loaded from the `.env.example` file (or whatever path is configured in `env_file_path`) in the repository at the selected branch. The platform reads this file when the Playground is created and uses it as the base layer.
 
 :::tip Viewing Defaults
-You can preview the default variables for any branch via the API: [`GET /api/playzones/:id/env_defaults?branch=main`](/api/playzones#get-env-defaults)
+You can preview the default variables for any branch via the API: [`GET /api/props/:id/env_defaults?branch=main`](/api/props#get-env-defaults)
 :::
 
 ## Override Variables

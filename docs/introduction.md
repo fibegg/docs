@@ -21,16 +21,16 @@ Move your progress between worlds. Data Portability ensures your essence is neve
 Every environment in fibe.gg is built from four core concepts:
 
 ```
-Playroom → Playzone → Playspec → Playground
-  (host)     (repo)    (blueprint)  (running env)
+Marquee → Prop → Playspec → Playground
+ (host)   (repo)  (blueprint)  (running env)
 ```
 
 | Concept | What It Is |
 |---------|-----------|
-| [**Playroom**](/core-concepts/playroom) | A remote Docker host where your environments run |
-| [**Playzone**](/core-concepts/playzone) | A connected GitHub repository that provides source code |
+| [**Marquee**](/core-concepts/marquee) | A remote Docker host where your environments run |
+| [**Prop**](/core-concepts/prop) | A connected GitHub repository that provides source code |
 | [**Playspec**](/core-concepts/playspec) | A blueprint that defines your environment's services and configuration |
-| [**Playground**](/core-concepts/playground) | A live, running instance of a Playspec on a Playroom |
+| [**Playground**](/core-concepts/playground) | A live, running instance of a Playspec on a Marquee |
 
 ## What You Can Do
 
@@ -55,7 +55,7 @@ Playroom → Playzone → Playspec → Playground
 |--------------|----------|
 | Launch my first environment | [Launch](/launch) |
 | Browse pre-built templates | [Stargate](/launch/stargate) |
-| Understand core concepts | [Core Concepts](/core-concepts/playroom) |
+| Understand core concepts | [Core Concepts](/core-concepts/marquee) |
 | Run a headless task | [Job Mode](/core-concepts/job-mode) |
 | Run automated AI repair jobs | [Automated Jobs](/core-concepts/automated-jobs) |
 | Configure services | [Services](/services/overview) |
