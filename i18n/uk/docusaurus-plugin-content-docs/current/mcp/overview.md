@@ -64,6 +64,28 @@ POST /api/keys
 
 Геній використає відповідні MCP-інструменти для виконання вашого запиту.
 
+```mermaid
+flowchart LR
+    AI["AI Клієнт\n(Claude / Cursor / VS Code)"]
+    KEY["🔑 API-ключ\nобласть `mcp:access`"]
+    MCP["🔌 MCP Сервер\nhttps://fibe.gg/mcp"]
+    AUTH{"Перевірка\nобласті"}
+    MQ["Marquees"]
+    PS["Playspecs"]
+    PG["Playgrounds"]
+    GN["Genies"]
+    TM["Шаблони"]
+
+    AI -->|"Bearer токен"| KEY
+    KEY --> MCP
+    MCP --> AUTH
+    AUTH -->|"marquees:read/write"| MQ
+    AUTH -->|"playspecs:read/write"| PS
+    AUTH -->|"playgrounds:read/write"| PG
+    AUTH -->|"agents:read/write"| GN
+    AUTH -->|"import_templates:*"| TM
+```
+
 ## Ендпоінт
 
 | Метод | Шлях | Опис |

@@ -15,6 +15,24 @@ Stored Genies let you **permanently register customized AI provider credentials 
 - **Build in Public:** Share your genie's live activity timeline with the community via a public URL.
 - **Re-use** them across multiple Playgrounds and chat sessions without configuration overhead
 
+```mermaid
+flowchart TD
+    CREATE["Bottle a Genie\n(Provider + API Key)"]
+    AUTH{"Status:\nAuthenticated?"}
+    
+    CREATE --> AUTH
+    AUTH -->|"Yes"| USE
+    AUTH -->|"No"| PEND["Status: Pending"]
+    
+    subgraph USE["Usage Options"]
+        BRIDGE["🌉 Standalone Chat"]
+        SIDE["🚀 Sidecar in Playground"]
+    end
+    
+    BRIDGE -.->|"Has own"| VOL["/app/data Volume"]
+    SIDE -.->|"Shares"| VOL
+```
+
 ## Customizing Genies
 
 Genies in fibe.gg are highly configurable. Using the **Genie Configuration Wizard**, you can:
@@ -96,4 +114,4 @@ Each account can store up to **10 genies** — for example, separate genies for 
 
 For specific providers like Gemini or OpenAI, you can choose to use a raw **API Key** instead of the full OAuth flow. This is toggled in the genie detail card and allows for faster service-account based authentication.
 
-An genie is **usable** when its status is `authenticated`.
+A genie is **usable** when its status is `authenticated`.

@@ -18,9 +18,29 @@ Every Marquee includes a built-in interactive SSH Terminal. This is your direct 
 
 When you create a Marquee, you provide SSH credentials to a remote server that has Docker installed. fibe.gg connects to this server over SSH and uses Docker Compose to orchestrate your services. [Traefik](https://traefik.io/) runs on every Marquee as a reverse proxy, handling routing, HTTPS certificates, and authentication.
 
+```mermaid
+flowchart TD
+    FIBE["fibe.gg Platform"]
+    subgraph HOST["Remote Server (your Marquee)"]
+        SSH["SSH :22"]
+        TR["⚡ Traefik\n(port 80/443)"]
+        subgraph PGA["Playground A"]
+            SVC1["web"] & SVC2["db"]
+        end
+        subgraph PGB["Playground B"]
+            SVC3["api"] & SVC4["redis"]
+        end
+    end
+    DNS["DNS\n*.your-domain.com"] --> TR
+    FIBE -->|"SSH / ed25519"| SSH
+    SSH -->|"docker compose"| PGA & PGB
+    TR --> SVC1 & SVC3
+```
+
 :::info One Marquee at a Time
 Each Marquee represents a single managed host. A Marquee can run multiple Playgrounds simultaneously, but each Playground lives on exactly one Marquee.
 :::
+
 
 ## Configuration
 

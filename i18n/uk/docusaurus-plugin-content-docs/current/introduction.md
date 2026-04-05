@@ -13,9 +13,32 @@ fibe.gg дає вашій команді **миттєві, ізольовані 
 
 Кожне середовище в fibe.gg побудоване на чотирьох основних концепціях:
 
-```
-Marquee → Prop → Playspec → Playground
-  (хост)     (репо)    (блюпринт)  (запущене середовище)
+```mermaid
+flowchart LR
+    subgraph YOU["Ваше середовище"]
+        R["🗂 Prop\n(Git Репозиторій)"]
+        B["📋 Playspec\n(Блюпринт)"]
+    end
+    subgraph INFRA["Віддалена інфраструктура"]
+        M["🖥 Marquee\n(Docker Хост)"]
+        T["⚡ Traefik\n(Реверс-проксі)"]
+        P1["🚀 Playground A"]
+        P2["🚀 Playground B"]
+    end
+    subgraph GENIES["AI Шар"]
+        G["🤖 Genie\n(Sidecar)"]
+        MCP["🔌 MCP Сервер"]
+    end
+    USER(["👤 Ви"])
+    USER -->|"Запуск"| B
+    R -->|"Вихідний код"| B
+    B -->|"Розгортання"| M
+    M --- T
+    T --> P1
+    T --> P2
+    G -.->|"Прикріплено до"| P1
+    MCP -.->|"Керує"| M
+    MCP -.->|"Керує"| B
 ```
 
 | Концепція | Що це таке |

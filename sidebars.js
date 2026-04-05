@@ -21,6 +21,7 @@ const sidebars = {
         'core-concepts/automated-jobs',
       ],
     },
+
     {
       type: 'category',
       label: 'Genies',

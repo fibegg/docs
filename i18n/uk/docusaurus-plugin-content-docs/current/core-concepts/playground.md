@@ -23,11 +23,18 @@ description: Playground — це живий, запущений екземпля
 
 Playground проходить через такі статуси:
 
-```
-pending → in_progress → running
-                      ↘ error → (retry) → pending
-         running → has_changes → (auto-resolve) → running
-         running → completed (тільки режим job)
+```mermaid
+stateDiagram-v2
+    [*] --> pending : Створення Playground
+    pending --> in_progress : Початок розгортання
+    in_progress --> running : Всі контейнери працюють
+    in_progress --> error : Помилка етапу
+    error --> pending : Повтор
+    running --> has_changes : Виявлено нові коміти
+    has_changes --> running : Авто-синхронізація (Playguard)
+    running --> completed : Режим job — всі\nwatched-сервіси завершені 0
+    running --> [*] : Знищено
+    completed --> [*] : Знищено
 ```
 
 | Статус | Опис |
@@ -188,6 +195,20 @@ Playground може опціонально включати **AI coding genie** 
 - **Термін дії** — Очищує прострочені Playground
 - **Очищення сиріт** — Видаляє Docker-ресурси, не привʼязані до активних Playground
 - **Тригери збірки** — Ініціює збірки для Production-сервісів при виявленні нових комітів
+
+```mermaid
+flowchart TD
+    PG(["🛡 Цикл Playguard"])
+    PG --> D{"Перевірка кожного Playground"}
+    D --> |"Закінчився час?"| EXP["🗑 Очищення контейнерів"]
+    D --> |"Є нові коміти?"| DIRTY{"Є dirty-сервіси?"}
+    DIRTY --> |"Ні"| PULL["⬇ git pull + rollout"]
+    DIRTY --> |"Так"| SKIP["⏭ Пропуск\n(збереження змін)"]
+    D --> |"Відсутні контейнери?"| HEAL["🔧 Авто-rollout\n(лікування дрейфу)"]
+    D --> |"Дрейф Production збірки?"| BUILD["🏗 Запуск збірки"]
+    D --> |"Job завершена?"| DONE["✅ Перехід → completed"]
+    EXP & PULL & HEAL & BUILD & DONE --> PG
+```
 
 ## Ліміти ресурсів
 

@@ -67,6 +67,28 @@ Ask your AI genie things like:
 
 The genie will use the appropriate MCP tools to carry out your request.
 
+```mermaid
+flowchart LR
+    AI["AI Client\n(Claude / Cursor / VS Code)"]
+    KEY["🔑 API Key\n`mcp:access` scope"]
+    MCP["🔌 MCP Server\nhttps://fibe.gg/mcp"]
+    AUTH{"Scope\nCheck"}
+    MQ["Marquees"]
+    PS["Playspecs"]
+    PG["Playgrounds"]
+    GN["Genies"]
+    TM["Templates"]
+
+    AI -->|"Bearer token"| KEY
+    KEY --> MCP
+    MCP --> AUTH
+    AUTH -->|"marquees:read/write"| MQ
+    AUTH -->|"playspecs:read/write"| PS
+    AUTH -->|"playgrounds:read/write"| PG
+    AUTH -->|"agents:read/write"| GN
+    AUTH -->|"import_templates:*"| TM
+```
+
 ## Endpoint
 
 | Method | Path | Description |

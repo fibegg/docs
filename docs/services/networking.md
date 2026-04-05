@@ -8,6 +8,33 @@ description: How services are exposed via subdomains, visibility settings, and i
 
 Every service in a Playground can be configured for network access. The platform handles subdomain routing, TLS termination, and access control automatically through [Traefik](https://traefik.io/).
 
+```mermaid
+flowchart TD
+    DNS["DNS\n*.dev.example.com → server IP"]
+    TLS["Let's Encrypt\nTLS Certificate"]
+    TR["⚡ Traefik\nReverse Proxy"]
+    DNS --> TR
+    TLS -.->|"Auto-renew"| TR
+
+    subgraph PGA["Playground A (pg-1-web-app)"]
+        direction LR
+        N1["Docker Network"]
+        W1["web :3000"] 
+        DB1["db :5432"]
+        N1 --> W1 & DB1
+    end
+    subgraph PGB["Playground B (pg-2-admin)"]
+        direction LR
+        N2["Docker Network"]
+        W2["web :3000"]
+        N2 --> W2
+    end
+
+    TR -->|"web.dev.example.com\n🌍 External"| W1
+    TR -->|"db.dev.example.com\n🔒 Internal (Basic Auth)"| DB1
+    TR -->|"admin.dev.example.com\n🌍 External"| W2
+```
+
 ## Subdomain Routing
 
 Each exposed service gets its own HTTPS subdomain under the Marquee's root domain:

@@ -20,9 +20,32 @@ Move your progress between worlds. Data Portability ensures your essence is neve
 
 Every environment in fibe.gg is built from four core concepts:
 
-```
-Marquee → Prop → Playspec → Playground
- (host)   (repo)  (blueprint)  (running env)
+```mermaid
+flowchart LR
+    subgraph YOU["Your Setup"]
+        R["🗂 Prop\n(Git Repo)"]
+        B["📋 Playspec\n(Blueprint)"]
+    end
+    subgraph INFRA["Remote Infrastructure"]
+        M["🖥 Marquee\n(Docker Host)"]
+        T["⚡ Traefik\n(Reverse Proxy)"]
+        P1["🚀 Playground A"]
+        P2["🚀 Playground B"]
+    end
+    subgraph GENIES["AI Layer"]
+        G["🤖 Genie\n(Sidecar)"]
+        MCP["🔌 MCP Server"]
+    end
+    USER(["👤 You"])
+    USER -->|"Launch"| B
+    R -->|"Source code"| B
+    B -->|"Deploy"| M
+    M --- T
+    T --> P1
+    T --> P2
+    G -.->|"Attached to"| P1
+    MCP -.->|"Manages"| M
+    MCP -.->|"Manages"| B
 ```
 
 | Concept | What It Is |
@@ -63,7 +86,7 @@ Marquee → Prop → Playspec → Playground
 | Use the REST API | [API Reference](/api/overview) |
 | Connect an AI genie via MCP | [MCP Server](/mcp/overview) |
 | Use AI genies with my own credentials | [Genies](/genies/overview) |
-| Attach files to an genie | [Genie Mounted Files](/genies/mounted-files) |
+| Attach files to a genie | [Genie Mounted Files](/genies/mounted-files) |
 | Create a reusable template | [Templates](/launch/templates) |
 | Manage API Keys and Webhooks | [Security & Access](/core-concepts/security) |
 | View Playground event history | [Audit Logs](/core-concepts/audit-logs) |

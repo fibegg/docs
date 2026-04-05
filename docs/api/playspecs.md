@@ -137,8 +137,8 @@ POST /api/playspecs
 }
 ```
 
-:::warning Locked Playspecs
-A Playspec becomes locked when any Playground references it. Locked Playspecs cannot be updated or deleted. See [Locked Status](/core-concepts/playspec#locked-status).
+:::tip Live Playgrounds
+You can update a Playspec at any time. Changes take effect on active Playgrounds during their next Rollout. See [Live Playgrounds & Editing](/core-concepts/playspec#live-playgrounds--editing).
 :::
 
 ---

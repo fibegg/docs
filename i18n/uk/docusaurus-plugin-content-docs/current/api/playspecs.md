@@ -137,8 +137,8 @@ POST /api/playspecs
 }
 ```
 
-:::warning Заблоковані Playspec
-Playspec стає заблокованим, коли на нього посилається будь-який Playground. Заблоковані Playspec не можуть бути оновлені або видалені. Див. [Заблокований статус](/core-concepts/playspec#locked-status).
+:::tip Живі Playground
+Ви можете оновити Playspec у будь-який момент. Зміни набудуть чинності для активних Playground під час їх наступного Rollout. Див. [Живі Playground та Редагування](/core-concepts/playspec#live-playgrounds--editing).
 :::
 
 ---

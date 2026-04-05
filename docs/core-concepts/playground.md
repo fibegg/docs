@@ -23,11 +23,18 @@ Within seconds, every exposed service is live at its own subdomain with automati
 
 A Playground progresses through these statuses:
 
-```
-pending → in_progress → running
-                      ↘ error → (retry) → pending
-         running → has_changes → (auto-resolve) → running
-         running → completed (job mode only)
+```mermaid
+stateDiagram-v2
+    [*] --> pending : Create Playground
+    pending --> in_progress : Provisioning starts
+    in_progress --> running : All containers up
+    in_progress --> error : Step failed
+    error --> pending : Retry
+    running --> has_changes : New commits detected
+    has_changes --> running : Auto-sync (Playguard)
+    running --> completed : Job mode — all watched\nservices exited 0
+    running --> [*] : Destroyed
+    completed --> [*] : Destroyed
 ```
 
 | Status | Description |
@@ -213,6 +220,20 @@ Playgrounds can optionally include an **AI coding genie** sidecar. When enabled,
 - **Expiration** — Cleans up expired Playgrounds
 - **Orphan cleanup** — Removes Docker resources not linked to active Playgrounds
 - **Build triggers** — Initiates builds for Production mode services when new commits are detected
+
+```mermaid
+flowchart TD
+    PG(["🛡 Playguard Loop"])
+    PG --> D{"Check each Playground"}
+    D --> |"Expired?"| EXP["🗑 Clean up containers"]
+    D --> |"Has new commits?"| DIRTY{"Dirty services?"}
+    DIRTY --> |"No"| PULL["⬇ git pull + rollout"]
+    DIRTY --> |"Yes"| SKIP["⏭ Skip sync\n(preserve edits)"]
+    D --> |"Containers missing?"| HEAL["🔧 Auto-rollout\n(drift heal)"]
+    D --> |"Production build drift?"| BUILD["🏗 Trigger rebuild"]
+    D --> |"Job finished?"| DONE["✅ Transition → completed"]
+    EXP & PULL & HEAL & BUILD & DONE --> PG
+```
 
 ## Resource Limits
 

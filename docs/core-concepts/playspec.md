@@ -12,6 +12,21 @@ A **Playspec** is a blueprint that defines the structure of your development env
 
 Think of a Playspec as a **reusable template** for environments. You define it once, and then launch as many [Playgrounds](/core-concepts/playground) from it as you need — each Playground is an independent, running instance of the same Playspec.
 
+```mermaid
+flowchart TB
+    P["📋 Playspec YAML"]
+    subgraph SVC["Services"]
+        DYN["Dynamic\n(Mounted Code)"]
+        STAT["Static\n(Pre-built Image)"]
+    end
+    CFG["Configuration\n- Ports\n- Subdomains\n- Toggles"]
+    
+    P --> SVC
+    SVC --> CFG
+    CFG -->|"Instantiate"| PG1["🚀 Playground 1"]
+    CFG -->|"Instantiate"| PG2["🚀 Playground 2"]
+```
+
 ## Configuration
 
 | Field | Description |
