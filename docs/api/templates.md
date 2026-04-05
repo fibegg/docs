@@ -108,7 +108,7 @@ POST /api/import_templates/:id/create_version
 Versions are **immutable** — once created, the `template_body` cannot be changed. The version number is auto-assigned sequentially.
 
 :::note Variable Validation
-The platform validates that all `$$var__NAME` and `$$random__NAME` references in the template body are declared in the `fibe.gg > variables` section, and vice versa. Undeclared or unused variables will cause a validation error.
+The platform validates that all `$$var__NAME` references in the template body are declared in the `fibe.gg > variables` section, and vice versa. Undeclared or unused variables will cause a validation error.
 :::
 
 ---
@@ -169,6 +169,6 @@ Compiles the template and launches a new Playground natively on the backend. Thi
 
 The backend `TemplateCompilerService` will automatically:
 1. Substitute any provided `variables` into `$$var__` placeholders.
-2. Generate secure 16-character hex strings for any `$$random__` placeholders.
+2. Generate secure 16-character hex strings for any variables with the `random: true` property.
 3. Validate variables against regex patterns defined in `fibe.gg > variables`.
 4. Deploy the compiled docker compose string to the target marquee.

@@ -57,4 +57,4 @@ When importing from a template, the launch form displays fields for each declare
 
 - **Display names** — Human-readable labels
 - **Validation rules** — Regex patterns that enforce input format
-- **Auto-generated values** — Random values for variables like `$$random__NAME`
+- **Auto-generated values** — Random values for variables with `random: true`

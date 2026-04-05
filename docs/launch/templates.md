@@ -44,14 +44,13 @@ services:
 
 ## Variables
 
-Template variables are placeholders in the format `$$var__NAME` or `$$random__NAME` that are replaced with actual values when a user launches from the template.
+Template variables are placeholders in the format `$$var__NAME` that are replaced with actual values when a user launches from the template.
 
 ### Variable Types
 
 | Pattern | Description |
 |---------|-------------|
-| `$$var__NAME` | A user-supplied value — the launch form presents an input field |
-| `$$random__NAME` | An auto-generated random value — no user input required |
+| `$$var__NAME` | A user-supplied value via input field, or an auto-generated random value if `random: true` is set |
 
 ### Variable Declarations
 
@@ -63,6 +62,7 @@ Each variable declaration supports:
 |-------|----------|-------------|
 | `name` | Yes | Human-readable display name shown in the launch form |
 | `validation` | No | A regex pattern (wrapped in `/` delimiters) for input validation |
+| `random` | No | If `true`, auto-generates a secure random string and hides the input |
 
 ### Validation
 
